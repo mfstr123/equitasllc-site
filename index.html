@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equitas Group | Equity Is a Right</title>
   <style> 
-  .site-header {
+ .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -13,6 +13,8 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  position: relative; /* ← ADD THIS */
 }
 
 .header-inner {
@@ -132,16 +134,49 @@
       h1 {
         font-size: 40px;
       }
+ <head>
+  <style>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(3, 17, 38, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      opacity: 0.98;
     }
   </style>
 </head>
-<body> <header class="site-header">
- .header-inner {
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Equitas Group Logo" class="nav-logo">
+  </div>
+</header>
+
+<div class="container">
+  .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px; /* tighter */
-  display: flex;
-  align-items: center;
 }
 </header>
   <div class="container">
