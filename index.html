@@ -4,13 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equitas Group | Equity Is a Right</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #07111f, #0b1830);
-      color: white;
-    }
+  .hero-logo {
+  width: 100%;
+  max-width: 120px;
+  margin-bottom: 20px;
+  display: block;
+  object-fit: contain;
+  opacity: 0.95;
+  animation: logoFloat 7s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -105,6 +116,7 @@
   <div class="container">
     <section class="hero">
       <div>
+        <img src="logo.png" class="hero-logo" alt="Equitas Group Logo">
         <h1>Equitas Group.<br><span>Legal. Consulting. Strategy.</span></h1>
         <p>
           At Equitas Group, we exist to level the playing field. Built on the belief that every individual and family deserves equal access to justice, technology, and financial opportunity, we deliver principled legal advocacy, innovative solutions, and strategic investment with an unwavering commitment to integrity — because equity is not a privilege, it is a right.
