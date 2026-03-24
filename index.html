@@ -33,27 +33,28 @@
   padding: 20px;
 }
    .card {
-  padding: 16px;
-  max-width: 420px;
+  padding: 12px;
+  max-width: 260px;
   margin: 0 auto;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 24px;
+  border-radius: 20px;
 }
- .logo-shell{
-  position: relative;
+.logo {
   width: 100%;
-  max-width: 260px;
-  aspect-ratio: 1 / 1;
-  display: grid;
-  place-items: center;
+  max-width: 120px;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  opacity: 0.95;
+  animation: logoFloat 7s ease-in-out infinite;
 }
 
-@keyframes logoFloat{
-  0%, 100%{
+@keyframes logoFloat {
+  0%, 100% {
     transform: translateY(0px);
   }
-  50%{
+  50% {
     transform: translateY(-4px);
   }
 }
