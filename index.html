@@ -138,37 +138,62 @@
       }
  <head>
   <style>
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(3, 17, 38, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    position: relative;
+    background: rgba(3, 17, 38, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
 
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-    }
+  .site-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(226,178,77,0.25),
+      transparent
+    );
+  }
 
-    .nav-logo {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      opacity: 0.98;
-    }
-  </style>
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo {
+    width: 100%;
+    max-width: 185px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    opacity: 0.98;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+</style>
 </head>
 
 <body>
-
 <header class="site-header">
   <div class="header-inner">
     <img src="logo.png" alt="Equitas Group Logo" class="nav-logo">
@@ -176,6 +201,7 @@
 </header>
 
 <div class="container">
+
   .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -183,20 +209,21 @@
 </header>
   <div class="container">
     <section class="hero">
-      <div>
-        <h1>Equitas Group.<br><span>Legal. Consulting. Strategy.</span></h1>
-        <p>
-          At Equitas Group, we exist to level the playing field. Built on the belief that every individual and family deserves equal access to justice, technology, and financial opportunity, we deliver principled legal advocacy, innovative solutions, and strategic investment with an unwavering commitment to integrity — because equity is not a privilege, it is a right.
-        </p>
-        <div class="buttons">
-          <a href="#services" class="btn btn-primary">Explore Services</a>
-          <a href="#mission" class="btn btn-secondary">Our Mission</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div></div>
-    </section>
+  <div>
+    <h1>Equitas Group.<br><span>Legal. Consulting. Strategy.</span></h1>
+    <p>
+      At Equitas Group, we exist to level the playing field. Built on the belief that every
+      individual and family deserves equal access to justice, technology, and financial
+      opportunity, we deliver principled legal advocacy, innovative solutions, and strategic
+      investment with an unwavering commitment to integrity — because equity is not a privilege,
+      it is a right.
+    </p>
+    <div class="buttons">
+      <a href="#services" class="btn btn-primary">Explore Services</a>
+      <a href="#mission" class="btn btn-secondary">Our Mission</a>
+    </div>
+  </div>
+</section>
 
     <section class="section" id="services">
       <div class="grid">
