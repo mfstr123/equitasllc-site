@@ -4,97 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equitas Group | Equity Is a Right</title>
-  <style> 
-   .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: linear-gradient(
-  90deg,
-  transparent,
-  rgba(226,178,77,0.25),
-  transparent
-);
+  <style>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      position: relative;
+      background: rgba(3, 17, 38, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-  position: relative; /* ← ADD THIS */
-}
+    .site-header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(226,178,77,0.25),
+        transparent
+      );
+    }
 
-.header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-}
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+    }
 
-.nav-logo {
-  width: 100%;
-  max-width: 200px; /* ← sweet spot */
-  height: auto;
-  object-fit: contain;
-  display: block;
-  opacity: 0.98;
+    .nav-logo {
+      width: 100%;
+      max-width: 185px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      opacity: 0.98;
+    }
 
-  animation: logoFloat 7s ease-in-out infinite;
-  filter: drop-shadow(0 6px 14px rgba(226,178,77,0.18));
-}
-
-@keyframes logoFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-3px); }
-}
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #07111f, #0b1830);
       color: white;
     }
+
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 60px 20px;
     }
+
     .hero {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1fr;
       gap: 30px;
       align-items: center;
-      min-height: 80vh;
+      min-height: 70vh;
     }
+
     h1 {
       font-size: 56px;
       line-height: 1;
       margin: 0 0 20px;
     }
+
     h1 span {
       color: #ffd26a;
     }
+
     p {
       font-size: 18px;
       line-height: 1.7;
       color: #d7e3f5;
     }
-    .card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    }
-    .logo {
-      max-width: 100%;
-      border-radius: 18px;
-      display: block;
-      margin: 0 auto;
-      background: white;
-      padding: 10px;
-    }
+
     .buttons {
       margin-top: 30px;
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
     }
+
     .btn {
       text-decoration: none;
       padding: 14px 22px;
@@ -102,98 +99,53 @@
       font-weight: bold;
       display: inline-block;
     }
+
     .btn-primary {
       background: #1f6fe5;
       color: white;
     }
+
     .btn-secondary {
       background: rgba(255,255,255,0.08);
       color: white;
       border: 1px solid rgba(255,255,255,0.12);
     }
+
     .section {
       padding: 30px 0 70px;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-    .box {
+
+    .box, .card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 20px;
       padding: 24px;
     }
+
     .box h3 {
       margin-top: 0;
       color: #ffd26a;
     }
+
     @media (max-width: 900px) {
-      .hero, .grid {
+      .grid {
         grid-template-columns: 1fr;
       }
+
       h1 {
         font-size: 40px;
       }
- <head>
-  <style>
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    position: relative;
-    background: rgba(3, 17, 38, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .site-header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(226,178,77,0.25),
-      transparent
-    );
-  }
-
-  .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-logo {
-    width: 100%;
-    max-width: 185px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    opacity: 0.98;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-</style>
+    }
+  </style>
 </head>
-
 <body>
+
 <header class="site-header">
   <div class="header-inner">
     <img src="logo.png" alt="Equitas Group Logo" class="nav-logo">
@@ -201,55 +153,50 @@
 </header>
 
 <div class="container">
-
-  .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-</header>
-  <div class="container">
-    <section class="hero">
-  <div>
-    <h1>Equitas Group.<br><span>Legal. Consulting. Strategy.</span></h1>
-    <p>
-      At Equitas Group, we exist to level the playing field. Built on the belief that every
-      individual and family deserves equal access to justice, technology, and financial
-      opportunity, we deliver principled legal advocacy, innovative solutions, and strategic
-      investment with an unwavering commitment to integrity — because equity is not a privilege,
-      it is a right.
-    </p>
-    <div class="buttons">
-      <a href="#services" class="btn btn-primary">Explore Services</a>
-      <a href="#mission" class="btn btn-secondary">Our Mission</a>
+  <section class="hero">
+    <div>
+      <h1>Equitas Group.<br><span>Legal. Consulting. Strategy.</span></h1>
+      <p>
+        At Equitas Group, we exist to level the playing field. Built on the belief that every
+        individual and family deserves equal access to justice, technology, and financial
+        opportunity, we deliver principled legal advocacy, innovative solutions, and strategic
+        investment with an unwavering commitment to integrity — because equity is not a privilege,
+        it is a right.
+      </p>
+      <div class="buttons">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#mission" class="btn btn-secondary">Our Mission</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-    <section class="section" id="services">
-      <div class="grid">
-        <div class="box">
-          <h3>Legal Advocacy</h3>
-          <p>Strategic legal support rooted in fairness, clarity, and disciplined representation.</p>
-        </div>
-        <div class="box">
-          <h3>Consulting & Advisory</h3>
-          <p>High-level guidance for legal, financial, and operational decision-making.</p>
-        </div>
-        <div class="box">
-          <h3>Strategic Growth</h3>
-          <p>Building long-term value through innovation, investment, and principled execution.</p>
-        </div>
+  <section class="section" id="services">
+    <div class="grid">
+      <div class="box">
+        <h3>Legal Advocacy</h3>
+        <p>Strategic legal support rooted in fairness, clarity, and disciplined representation.</p>
       </div>
-    </section>
+      <div class="box">
+        <h3>Consulting & Advisory</h3>
+        <p>High-level guidance for legal, financial, and operational decision-making.</p>
+      </div>
+      <div class="box">
+        <h3>Strategic Growth</h3>
+        <p>Building long-term value through innovation, investment, and principled execution.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" id="mission">
-      <div class="card">
-        <h2>Mission</h2>
-        <p>
-          We believe justice, technology, and financial opportunity should not be reserved for the few. Equitas Group stands at the intersection of advocacy, innovation, and strategic action.
-        </p>
-      </div>
-    </section>
-  </div>
+  <section class="section" id="mission">
+    <div class="card">
+      <h2>Mission</h2>
+      <p>
+        We believe justice, technology, and financial opportunity should not be reserved for the few.
+        Equitas Group stands at the intersection of advocacy, innovation, and strategic action.
+      </p>
+    </div>
+  </section>
+</div>
+
 </body>
 </html>
