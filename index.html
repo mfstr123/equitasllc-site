@@ -45,11 +45,31 @@ border: 1px solid rgba(255,255,255,0.08);
     }
  .logo {
   width: 100%;
-  max-width: 220px;
+  max-width: 160px;
   margin: 0 auto;
   display: block;
   object-fit: contain;
-  opacity: 0.95;
+  opacity: 0.96;
+  animation: logoFloat 6s ease-in-out infinite, logoGlow 4.5s ease-in-out infinite;
+  filter: drop-shadow(0 8px 18px rgba(224, 168, 58, 0.12));
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes logoGlow {
+  0%, 100% {
+    filter: drop-shadow(0 8px 18px rgba(224, 168, 58, 0.10));
+  }
+  50% {
+    filter: drop-shadow(0 10px 24px rgba(224, 168, 58, 0.18));
+  }
 }
     }
     .buttons {
