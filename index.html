@@ -16,57 +16,41 @@
       margin: 0 auto;
       padding: 60px 20px;
     }
-   .hero-panel{
-  position: relative;
-  border-radius: 30px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)),
-    linear-gradient(135deg, rgba(45,124,246,.06), rgba(226,178,77,.04));
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 24px 70px rgba(0,0,0,.28);
-  min-height: 360px;
-  max-width: 460px;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  padding: 20px;
-}
-   .card {
-  padding: 10px;
-  max-width: 220px;
-  margin: 0 auto;
-  background: transparent; /* remove white dominance */
-  border: none;
-}
-.logo {
-  width: 100%;
-  max-width: 110px; /* MUCH smaller */
-  display: block;
-  margin: 0 auto;
-  object-fit: cover;
-  transform: scale(0.75); /* crops visual space */
-  opacity: 0.95;
-  animation: logoFloat 7s ease-in-out infinite;
-}
-
-@keyframes logoFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-}
-
-@keyframes logoGlow{
-  0%, 100%{
-    filter: drop-shadow(0 8px 16px rgba(226,178,77,.08));
-  }
-  50%{
-    filter: drop-shadow(0 12px 24px rgba(226,178,77,.16));
-  }
-}
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+      min-height: 80vh;
+    }
+    h1 {
+      font-size: 56px;
+      line-height: 1;
+      margin: 0 0 20px;
+    }
+    h1 span {
+      color: #ffd26a;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #d7e3f5;
+    }
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .logo {
+      max-width: 100%;
+      border-radius: 18px;
+      display: block;
+      margin: 0 auto;
+      background: white;
+      padding: 10px;
+    }
     .buttons {
       margin-top: 30px;
       display: flex;
@@ -122,8 +106,6 @@
     <section class="hero">
       <div>
         <h1>Equitas Group.<br><span>Legal. Consulting. Strategy.</span></h1>
-
-<p><strong>Legal & Strategic Advisory Firm</strong></p>
         <p>
           At Equitas Group, we exist to level the playing field. Built on the belief that every individual and family deserves equal access to justice, technology, and financial opportunity, we deliver principled legal advocacy, innovative solutions, and strategic investment with an unwavering commitment to integrity — because equity is not a privilege, it is a right.
         </p>
@@ -133,11 +115,8 @@
         </div>
       </div>
 
-</a>
-      .card img {
-  background: transparent;
-}
-}"logo">
+      <div class="card">
+        <img src="https://via.placeholder.com/700x700?text=Equitas+Group+Logo" alt="Equitas Group Logo" class="logo">
       </div>
     </section>
 
