@@ -40,35 +40,32 @@
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 24px;
 }
- .logo {
+ .logo-shell{
+  position: relative;
   width: 100%;
-  max-width: 60px;
-  margin: 0 auto;
-  display: block;
-  object-fit: contain;
-  opacity: 0.96;
-  animation: logoFloat 6s ease-in-out infinite, logoGlow 4.5s ease-in-out infinite;
-  filter: drop-shadow(0 8px 18px rgba(224, 168, 58, 0.12));
+  max-width: 260px;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
 }
 
-@keyframes logoFloat {
-  0%, 100% {
+@keyframes logoFloat{
+  0%, 100%{
     transform: translateY(0px);
   }
-  50% {
-    transform: translateY(-6px);
+  50%{
+    transform: translateY(-4px);
   }
 }
 
-@keyframes logoGlow {
-  0%, 100% {
-    filter: drop-shadow(0 8px 18px rgba(224, 168, 58, 0.10));
+@keyframes logoGlow{
+  0%, 100%{
+    filter: drop-shadow(0 8px 16px rgba(226,178,77,.08));
   }
-  50% {
-    filter: drop-shadow(0 10px 24px rgba(224, 168, 58, 0.18));
+  50%{
+    filter: drop-shadow(0 12px 24px rgba(226,178,77,.16));
   }
 }
-    }
     .buttons {
       margin-top: 30px;
       display: flex;
