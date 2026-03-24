@@ -33,19 +33,19 @@
   padding: 20px;
 }
    .card {
-  padding: 12px;
-  max-width: 260px;
+  padding: 10px;
+  max-width: 220px;
   margin: 0 auto;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
+  background: transparent; /* remove white dominance */
+  border: none;
 }
 .logo {
   width: 100%;
-  max-width: 120px;
+  max-width: 110px; /* MUCH smaller */
   display: block;
   margin: 0 auto;
-  object-fit: contain;
+  object-fit: cover;
+  transform: scale(0.75); /* crops visual space */
   opacity: 0.95;
   animation: logoFloat 7s ease-in-out infinite;
 }
@@ -134,11 +134,9 @@
       </div>
 
 </a>
-      <div class="card">
-        <img src="logo.png" alt="Equitas Group Logo" class.logo {
-  width: 100%;
-  max-width: 420px;
-  object-fit: contain;
+      .card img {
+  background: transparent;
+}
 }"logo">
       </div>
     </section>
