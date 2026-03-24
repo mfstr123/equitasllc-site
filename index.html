@@ -25,13 +25,14 @@
 
 .nav-logo {
   width: 100%;
-  max-width: 150px;
+  max-width: 200px; /* ← sweet spot */
   height: auto;
-  display: block;
   object-fit: contain;
-  opacity: 0.96;
+  display: block;
+  opacity: 0.98;
+
   animation: logoFloat 7s ease-in-out infinite;
-  filter: drop-shadow(0 6px 12px rgba(226,178,77,0.15));
+  filter: drop-shadow(0 6px 14px rgba(226,178,77,0.18));
 }
 
 @keyframes logoFloat {
@@ -135,9 +136,13 @@
   </style>
 </head>
 <body> <header class="site-header">
-  <div class="header-inner">
-    <img src="logo.png" alt="Equitas Group Logo" class="nav-logo">
-  </div>
+ .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px; /* tighter */
+  display: flex;
+  align-items: center;
+}
 </header>
   <div class="container">
     <section class="hero">
