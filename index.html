@@ -16,26 +16,22 @@
       margin: 0 auto;
       padding: 60px 20px;
     }
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      align-items: center;
-      min-height: 80vh;
-    }
-    h1 {
-      font-size: 56px;
-      line-height: 1;
-      margin: 0 0 20px;
-    }
-    h1 span {
-      color: #ffd26a;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #d7e3f5;
-    }
+   .hero-panel{
+  position: relative;
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)),
+    linear-gradient(135deg, rgba(45,124,246,.06), rgba(226,178,77,.04));
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+  min-height: 360px;
+  max-width: 460px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 20px;
+}
    .card {
   padding: 16px;
   max-width: 420px;
