@@ -1,679 +1,179 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equitas Group LLC | Strength. Growth. Trust.</title>
-  <meta
-    name="description"
-    content="Equitas Group LLC is a holding company focused on ownership of various companies, musical compositions, brand management, attire, commodities, technologies, and select advisory services."
-  />
+
   <style>
     :root {
       --bg: #05070b;
-      --bg-2: #09111c;
-      --panel: rgba(8, 14, 24, 0.84);
-      --panel-2: rgba(13, 22, 35, 0.78);
-      --line: rgba(255, 255, 255, 0.08);
       --text: #dfe7f5;
       --muted: #9fb2cf;
-      --blue: #0b4fc9;
-      --blue-2: #123b8f;
       --gold: #d89a17;
-      --gold-2: #ffbf33;
-      --silver: #9aa6bb;
-      --silver-2: #c9d2df;
-      --shadow: rgba(0, 0, 0, 0.42);
-      --max: 1180px;
+      --blue: #0b4fc9;
+      --silver: #c9d2df;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-family: Inter, sans-serif;
       color: var(--text);
-      background:
-        linear-gradient(rgba(5,7,11,.92), rgba(5,7,11,.96)),
-        radial-gradient(circle at 20% 15%, rgba(18,79,201,.20), transparent 28%),
-        radial-gradient(circle at 85% 18%, rgba(216,154,23,.16), transparent 22%),
-        radial-gradient(circle at 50% 100%, rgba(154,166,187,.10), transparent 24%),
-        #05070b;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: linear-gradient(#05070b, #020409);
     }
 
+    /* 🔥 BACKGROUND LOGO (TRANSPARENT VERSION) */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: url("logo.png") center 120px / min(58vw, 760px) no-repeat;
-      opacity: 0.10;
-      pointer-events: none;
-      filter: drop-shadow(0 0 30px rgba(216,154,23,.12));
+      background: url("equitas-bg.png") center center / 65% no-repeat;
+      opacity: 0.08;
       z-index: 0;
+      pointer-events: none;
     }
-
-    a {
-      color: var(--gold-2);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
 
     .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 22px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
       position: relative;
       z-index: 1;
     }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(5, 9, 15, 0.78);
-      border-bottom: 1px solid rgba(216,154,23,.18);
-    }
-
     .nav {
-      min-height: 78px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      align-items: center;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      min-width: 0;
+      gap: 15px;
     }
 
+    /* 🔥 MAIN LOGO (FULL VERSION) */
     .brand img {
-  height: 50px;
-  width: auto;
-  mix-blend-mode: screen;
-  filter: brightness(1.2) contrast(1.1) drop-shadow(0 10px 20px rgba(216,154,23,.14));
-}
-
-    .brand-title {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      height: 55px;
     }
 
     .brand-title strong {
-      font-size: 15px;
-      letter-spacing: .16em;
-      color: var(--silver-2);
-      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+      color: var(--silver);
     }
 
     .brand-title span {
       font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold-2);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: .03em;
+      color: var(--gold);
     }
 
     .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
+      background: linear-gradient(45deg, var(--gold), #ffcc66);
+      padding: 10px 18px;
       border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      letter-spacing: .02em;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .cta:hover {
-      transform: translateY(-1px);
+      color: black;
+      font-weight: bold;
       text-decoration: none;
     }
 
-    .cta.primary {
-      color: #071018;
-      background: linear-gradient(135deg, var(--gold-2), var(--gold), var(--silver-2));
-      box-shadow: 0 14px 28px rgba(216,154,23,.22);
-    }
-
-    .cta.secondary {
-      color: var(--silver-2);
-      background: rgba(255,255,255,.03);
-      border-color: rgba(255,255,255,.12);
-    }
-
     .hero {
-      padding: 92px 0 56px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(216,154,23,.18);
-      background: rgba(255,255,255,.03);
-      color: var(--gold-2);
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
+      text-align: center;
+      padding: 100px 20px;
     }
 
     h1 {
-      margin: 0 0 14px;
-      font-size: clamp(42px, 6vw, 72px);
-      line-height: .96;
-      letter-spacing: -0.05em;
+      font-size: 60px;
+      margin-bottom: 20px;
     }
 
     .metallic {
-      background: linear-gradient(135deg, #dce5f3 0%, #2d79ff 20%, #8fb4ff 36%, #ffcf63 58%, #d89a17 74%, #cdd6e3 100%);
+      background: linear-gradient(90deg, #ffffff, #2d79ff, #d89a17);
       -webkit-background-clip: text;
-      background-clip: text;
       color: transparent;
     }
 
     .lead {
-      margin: 0;
-      max-width: 760px;
+      max-width: 700px;
+      margin: auto;
+      color: var(--muted);
       font-size: 18px;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .hero-card,
-    .card {
-      background: linear-gradient(180deg, rgba(9,16,26,.84), rgba(6,10,18,.92));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 24px;
-      box-shadow: 0 24px 60px var(--shadow);
-    }
-
-    .hero-card { padding: 24px; }
-    .card { padding: 24px; }
-
-    .hero-card h3,
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      color: var(--silver-2);
-    }
-
-    .muted { color: var(--muted); }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .stat {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(216,154,23,.12);
-    }
-
-    .stat .label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .10em;
-      color: var(--muted);
-    }
-
-    .stat .value {
-      margin-top: 6px;
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--gold-2);
     }
 
     .section {
-      padding: 42px 0;
+      padding: 60px 20px;
     }
 
-    .section h2 {
-      margin: 0 0 10px;
-      font-size: clamp(30px, 4vw, 44px);
-      letter-spacing: -0.04em;
-      color: var(--silver-2);
-    }
-
-    .section .sub {
-      margin: 0 0 24px;
-      max-width: 760px;
-      color: var(--muted);
-    }
-
-    .grid-3 {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    ul.clean {
-      list-style: none;
-      margin: 14px 0 0;
-      padding: 0;
-    }
-
-    ul.clean li {
-      padding: 11px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(18,79,201,.20), rgba(216,154,23,.18));
-      color: var(--gold-2);
-      font-weight: 800;
-      border: 1px solid rgba(255,255,255,.10);
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
-    }
-
-    .focus-card {
-      grid-column: span 2;
-      padding: 22px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(9,16,26,.84), rgba(6,10,18,.94));
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 18px 48px rgba(0,0,0,.30);
-    }
-
-    .focus-card h3 {
-      margin: 0 0 8px;
-      color: var(--silver-2);
-      font-size: 20px;
-    }
-
-    .contact-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .contact-list div {
-      margin: 12px 0;
-      color: var(--muted);
-    }
-
-    .contact-list strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--gold-2);
-    }
-
-    form {
-      display: grid;
-      gap: 12px;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      border-radius: 14px;
-      padding: 14px 16px;
-      font: inherit;
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 16px;
     }
 
     footer {
-      padding: 30px 0 58px;
+      text-align: center;
+      padding: 40px;
       color: var(--muted);
     }
 
-    .footer-bar {
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 1040px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2,
-      .contact-box,
-      .stat-row {
-        grid-template-columns: 1fr;
-      }
-
-      .focus-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .focus-card {
-        grid-column: span 1;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-links { display: none; }
-      .hero { padding-top: 58px; }
-      body::before {
-        background-size: 92vw;
-        background-position: center 120px;
-      }
-      .focus-grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <div class="topbar">
-    <div class="wrap nav">
-      <div class="brand">
-        <img src="logo.png" alt="Equitas Group LLC logo" />
-        <div class="brand-title">
-          <strong>Equitas Group LLC</strong>
-          <span>Strength. Growth. Trust.</span>
-        </div>
-      </div>
 
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#focus">Portfolio Focus</a>
-        <a href="#structure">Structure</a>
-        <a href="#contact">Contact</a>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="equitas-main.png" alt="Equitas Logo">
+      <div class="brand-title">
+        <strong>EQUITAS GROUP LLC</strong><br>
+        <span>STRENGTH. GROWTH. TRUST.</span>
       </div>
-
-      <a class="cta primary" href="#contact">Connect</a>
     </div>
+
+    <a href="#contact" class="cta">Connect</a>
   </div>
 
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">Holding company • portfolio ownership • strategic growth</div>
-        <h1><span class="metallic">Building a Diverse</span><br />Portfolio of Value</h1>
-        <p class="lead">
-          Equitas Group LLC is a holding company focused on ownership and long-term growth across multiple sectors, including various companies, musical compositions, brand management, attire, commodities, technologies, and select advisory initiatives.
-        </p>
-        <p class="lead" style="margin-top:14px;">
-          Our objective is to create, hold, expand, and steward valuable assets through disciplined ownership, brand development, and strategic portfolio positioning.
-        </p>
-
-        <div class="hero-actions">
-          <a class="cta primary" href="#focus">Explore Focus Areas</a>
-          <a class="cta secondary" href="#about">Learn More</a>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <h3>Equitas Snapshot</h3>
-        <p class="muted">
-          Equitas Group LLC is designed to hold and support a broad portfolio of business, intellectual property, and brand-related assets.
-        </p>
-
-        <div class="stat-row">
-          <div class="stat">
-            <div class="label">Model</div>
-            <div class="value">Holding</div>
-          </div>
-          <div class="stat">
-            <div class="label">Focus</div>
-            <div class="value">Ownership</div>
-          </div>
-          <div class="stat">
-            <div class="label">Vision</div>
-            <div class="value">Growth</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section class="section" id="about">
-    <div class="wrap">
-      <h2>About Equitas Group</h2>
-      <p class="sub">
-        Equitas Group LLC exists to own, organize, and develop a diversified portfolio of entities, intellectual property, creative rights, and growth-oriented ventures.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="feature-icon">01</div>
-          <h3>Ownership-Driven Structure</h3>
-          <p class="muted">
-            Equitas is built around asset ownership, portfolio expansion, and long-term value creation across multiple lines of business.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="feature-icon">02</div>
-          <h3>Brand & IP Focus</h3>
-          <p class="muted">
-            The company is positioned to hold and develop brands, musical compositions, creative assets, and related intellectual property.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="feature-icon">03</div>
-          <h3>Modern Growth Platform</h3>
-          <p class="muted">
-            Equitas supports portfolio building through disciplined structure, strategic positioning, and selective business development activity.
-          </p>
-        </div>
-      </div>
-    </div>
+  <section class="hero">
+    <h1><span class="metallic">Equitas Group</span></h1>
+    <p class="lead">
+      A holding company focused on ownership of businesses, musical compositions,
+      brand assets, attire, commodities, technologies, and strategic growth opportunities.
+    </p>
   </section>
 
-  <section class="section" id="focus">
+  <section class="section">
     <div class="wrap">
       <h2>Portfolio Focus</h2>
-      <p class="sub">
-        Equitas Group LLC is geared toward a range of ownership and growth categories that align with a diversified holding company strategy.
-      </p>
-
-      <div class="focus-grid">
-        <div class="focus-card">
-          <h3>Various Companies</h3>
-          <p class="muted">
-            Ownership interests in operating entities and growth-stage ventures across selected sectors.
-          </p>
-        </div>
-
-        <div class="focus-card">
-          <h3>Musical Compositions</h3>
-          <p class="muted">
-            Holding, administration, and long-term value positioning of composition rights and related creative assets.
-          </p>
-        </div>
-
-        <div class="focus-card">
-          <h3>Brand Management</h3>
-          <p class="muted">
-            Brand development, stewardship, and positioning of portfolio brands and branded ventures.
-          </p>
-        </div>
-
-        <div class="focus-card">
-          <h3>Attire</h3>
-          <p class="muted">
-            Ownership and growth of apparel-related ventures, products, and brand extensions.
-          </p>
-        </div>
-
-        <div class="focus-card">
-          <h3>Commodities</h3>
-          <p class="muted">
-            Select commodity-related interests aligned with broader portfolio diversification goals.
-          </p>
-        </div>
-
-        <div class="focus-card">
-          <h3>Technologies</h3>
-          <p class="muted">
-            Participation in technology-oriented opportunities, digital assets, and innovation-aligned ventures.
-          </p>
-        </div>
+      <div class="grid">
+        <div class="card">Companies & Ventures</div>
+        <div class="card">Musical Compositions</div>
+        <div class="card">Brand Management</div>
+        <div class="card">Attire & Products</div>
+        <div class="card">Commodities</div>
+        <div class="card">Technologies</div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="structure">
+  <section id="contact" class="section">
     <div class="wrap">
-      <h2>How Equitas Operates</h2>
-      <p class="sub">
-        Equitas Group LLC is structured to acquire, hold, support, and grow assets and entities within a cohesive portfolio model.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>Core Function</h3>
-          <ul class="clean">
-            <li>Ownership of portfolio entities and selected ventures</li>
-            <li>Holding of intellectual property and creative assets</li>
-            <li>Brand positioning and long-term value development</li>
-            <li>Strategic portfolio oversight and expansion</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Strategic Direction</h3>
-          <ul class="clean">
-            <li>Diversified growth across multiple categories</li>
-            <li>Structured separation of assets and operating activity</li>
-            <li>Long-term approach to value creation and stewardship</li>
-            <li>Modern framework for scalable ownership and development</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="wrap">
-      <h2>Contact Equitas Group</h2>
-      <p class="sub">
-        For portfolio inquiries, strategic opportunities, and business communications, contact Equitas Group LLC directly.
-      </p>
-
-      <div class="contact-box">
-        <div class="card contact-list">
-          <div>
-            <strong>Business Name</strong>
-            Equitas Group LLC
-          </div>
-          <div>
-            <strong>Business Address</strong>
-            7131 W. 135th Street #1098<br />
-            Overland Park, KS 66223
-          </div>
-          <div>
-            <strong>Telephone</strong>
-            <a href="tel:18005599335">(800) 559-9335</a>
-          </div>
-          <div>
-            <strong>Email</strong>
-            <a href="mailto:info@equitasholding.com">info@equitasholding.com</a>
-          </div>
-          <div>
-            <strong>Website</strong>
-            <a href="https://equitasholding.com">equitasholding.com</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <form>
-            <input type="text" placeholder="Full Name" />
-            <input type="email" placeholder="Email Address" />
-            <input type="tel" placeholder="Phone Number" />
-            <select>
-              <option>General Inquiry</option>
-              <option>Portfolio Opportunity</option>
-              <option>Brand Inquiry</option>
-              <option>Business Communication</option>
-            </select>
-            <textarea placeholder="How can we help?"></textarea>
-            <button type="button" class="cta primary">Submit Inquiry</button>
-          </form>
-        </div>
-      </div>
+      <h2>Contact</h2>
+      <p class="lead">Equitas Group LLC<br>Overland Park, KS</p>
     </div>
   </section>
 
   <footer>
-    <div class="wrap footer-bar">
-      <div>
-        <strong>Equitas Group LLC</strong><br />
-        Strength. Growth. Trust.<br />
-        7131 W. 135th Street #1098, Overland Park, KS 66223<br />
-        <a href="tel:18005599335">(800) 559-9335</a> ·
-        <a href="mailto:info@equitasholding.com">info@equitasholding.com</a>
-      </div>
-
-      <div>
-        <a href="#about">About</a> ·
-        <a href="#focus">Portfolio Focus</a> ·
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
+    Equitas Group LLC © 2026
   </footer>
+
 </body>
 </html>
