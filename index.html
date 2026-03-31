@@ -1,42 +1,11 @@
 <!DOCTYPE html>
-h1, h2, h3 {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-weight: 700;
-}
-
-h3 {
-  font-weight: 600;
-}
-
-p {
-  line-height: 1.7;
-}
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Equitas Group LLC | Strength. Growth. Trust.</title>
+  <meta name="description" content="Equitas Group LLC is a holding company focused on ownership of businesses, musical compositions, brand assets, attire, commodities, technologies, and strategic growth opportunities." />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    /* your CSS starts here */
-    :root {
-    <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Equitas Group LLC | Strength. Growth. Trust.</title>
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -93,8 +62,6 @@ p {
         drop-shadow(0 0 30px rgba(216,154,23,.15));
     }
 
-  </style>
-</head>
     a {
       color: var(--gold-2);
       text-decoration: none;
@@ -109,6 +76,15 @@ p {
       position: relative;
       z-index: 1;
     }
+
+    h1, h2, h3 {
+      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    h2 { font-weight: 700; }
+    h3 { font-weight: 600; }
+    p { line-height: 1.7; }
 
     .topbar {
       position: sticky;
@@ -180,6 +156,11 @@ p {
       font-size: 14px;
       letter-spacing: .03em;
       font-weight: 500;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--silver-2);
     }
 
     .cta {
@@ -198,14 +179,22 @@ p {
     }
 
     .cta:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
       text-decoration: none;
     }
 
     .cta.primary {
       background: linear-gradient(135deg, var(--gold-2), var(--gold));
       color: #091019;
-      box-shadow: 0 14px 28px rgba(216,154,23,.20);
+      box-shadow:
+        0 12px 30px rgba(216,154,23,.25),
+        0 0 20px rgba(216,154,23,.15);
+    }
+
+    .cta.primary:hover {
+      box-shadow:
+        0 18px 40px rgba(216,154,23,.35),
+        0 0 25px rgba(216,154,23,.2);
     }
 
     .cta.secondary {
@@ -214,9 +203,9 @@ p {
       background: rgba(255,255,255,.03);
     }
 
-      .hero {
-  padding: 120px 0 70px;
-} text-align: center;
+    .hero {
+      padding: 120px 0 70px;
+      text-align: center;
     }
 
     .eyebrow {
@@ -238,27 +227,26 @@ p {
 
     h1 {
       margin: 0 0 18px;
-      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-      font-size: clamp(54px, 7vw, 96px);
+      font-size: clamp(52px, 6.5vw, 88px);
       line-height: .92;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.03em;
       font-weight: 800;
     }
 
     .hero-title {
       display: inline-flex;
-      gap: 14px;
+      gap: 18px;
       align-items: baseline;
       flex-wrap: wrap;
       justify-content: center;
     }
 
-  .group-word {
-  color: #cfd6df;
-  font-weight: 600;
-  opacity: 0.85;
-  text-shadow: 0 8px 20px rgba(0,0,0,.35);
-}
+    .group-word {
+      color: #cfd6df;
+      font-weight: 600;
+      opacity: 0.85;
+      text-shadow: 0 8px 20px rgba(0,0,0,.35);
+    }
 
     .metallic {
       background: linear-gradient(
@@ -295,71 +283,46 @@ p {
     }
 
     .section {
-      padding: 46px 0;
+      padding: 70px 0;
     }
 
     .section h2 {
-      margin: 0 0 10px;
-      font-size: clamp(32px, 4vw, 46px);
-      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+      font-size: clamp(34px, 4vw, 48px);
       color: var(--silver-2);
-      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-      font-weight: 800;
     }
 
-    .section .sub {
+    .sub {
       margin: 0 0 26px;
-      max-width: 760px;
+      max-width: 720px;
       color: var(--muted);
+      font-size: 17px;
     }
 
-    .hero-card,
     .card,
     .focus-card {
-      background: linear-gradient(180deg, rgba(8,14,24,.82), rgba(5,9,16,.92));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(8,14,24,.85), rgba(5,9,16,.95));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 20px;
+      padding: 26px;
+      transition: transform .3s ease, box-shadow .3s ease;
       box-shadow: 0 24px 60px var(--shadow);
     }
 
-    .hero-card,
-    .card,
-    .focus-card {
-      padding: 24px;
+    .card:hover,
+    .focus-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.55),
+        0 0 30px rgba(31,111,255,.18),
+        0 0 20px rgba(216,154,23,.12);
     }
 
-    .hero-card h3,
     .card h3,
     .focus-card h3 {
       margin: 0 0 10px;
       font-size: 20px;
       color: var(--silver-2);
-      font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-      font-weight: 700;
-    }
-
-    .muted { color: var(--muted); }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 18px;
-    }
-
-    .focus-card {
-      grid-column: span 2;
     }
 
     .feature-icon {
@@ -374,6 +337,28 @@ p {
       font-weight: 800;
       border: 1px solid rgba(255,255,255,.10);
       font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .focus-card {
+      grid-column: span 2;
     }
 
     ul.clean {
@@ -391,7 +376,7 @@ p {
     .contact-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 20px;
     }
 
     .contact-list div {
@@ -420,6 +405,12 @@ p {
       font: inherit;
     }
 
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(216,154,23,.2);
+    }
+
     textarea {
       min-height: 130px;
       resize: vertical;
@@ -428,6 +419,8 @@ p {
     footer {
       padding: 30px 0 60px;
       color: var(--muted);
+      opacity: 0.9;
+      font-size: 14px;
     }
 
     .footer-bar {
@@ -536,17 +529,7 @@ p {
             The company is positioned to hold and develop brands, musical compositions, and other intellectual and creative properties.
           </p>
         </div>
-   .card, .focus-card {
-  transition: transform .3s ease, box-shadow .3s ease;
-}
 
-.card:hover, .focus-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.55),
-    0 0 30px rgba(31,111,255,.18),
-    0 0 20px rgba(216,154,23,.12);
-}
         <div class="card">
           <div class="feature-icon">03</div>
           <h3>Modern Growth Platform</h3>
@@ -712,5 +695,6 @@ p {
   </footer>
 </body>
 </html>
+
 
 
