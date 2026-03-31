@@ -195,11 +195,23 @@
     }
 
     .metallic {
-      background: linear-gradient(90deg, #f1f5fb 0%, #84b2ff 28%, #2e78ff 44%, #b3c3d9 64%, #f3bf49 84%, #c88e14 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #9ec5ff 20%,
+    #2e78ff 40%,
+    #cfd6df 60%,
+    #f3bf49 80%,
+    #d89a17 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.4),
+    0 0 20px rgba(31,111,255,.15),
+    0 0 25px rgba(216,154,23,.12);
+}
 
     .lead {
       max-width: 860px;
@@ -222,10 +234,11 @@
 
     .section h2 {
       margin: 0 0 10px;
-      font-size: clamp(32px, 4vw, 46px);
-      letter-spacing: -0.04em;
-      color: var(--silver-2);
-    }
+    h1 {
+  font-size: clamp(52px, 7vw, 92px);
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
 
     .section .sub {
       margin: 0 0 26px;
@@ -441,7 +454,10 @@
   <header class="hero">
     <div class="wrap">
       <div class="eyebrow">Holding company • portfolio ownership • strategic growth</div>
-      <h1><span class="metallic">Equitas Group</span></h1>
+      <h1>
+  <span class="metallic">Equitas</span>
+  <span style="margin-left:10px;color:#cfd6df;">Group</span>
+</h1>
       <p class="lead">
         A holding company focused on ownership of businesses, musical compositions, brand assets, attire, commodities, technologies, and strategic growth opportunities.
       </p>
