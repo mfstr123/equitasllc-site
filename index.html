@@ -1,790 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Equitas Group | Strategic Holdings • Advisory • Growth</title>
-  <meta
-    name="description"
-    content="Equitas Group is a holding company focused on strategic holdings, advisory, and growth."
-  />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Equitas Group</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #05070d;
+    color: #eaeef5;
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .banner {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .banner img {
+    width: 720px;
+    max-width: 95%;
+    border-radius: 6px;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .brand {
+    font-weight: 700;
+    letter-spacing: .12em;
+  }
+
+  .nav a {
+    margin-left: 20px;
+    color: #aaa;
+    text-decoration: none;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  h1 {
+    font-size: 52px;
+    margin-bottom: 10px;
+  }
+
+  .gold {
+    color: #d4af37;
+  }
+
+  .sub {
+    color: #aaa;
+    max-width: 600px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    background: #0b111c;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  @media(max-width: 900px){
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
-  <style>
-    :root {
-      --bg: #04070d;
-      --bg-2: #0b1220;
-      --panel: rgba(14, 19, 30, 0.82);
-      --panel-2: rgba(18, 24, 38, 0.9);
-      --text: #f4f6fb;
-      --muted: #b9c2d0;
-      --line: rgba(255,255,255,.10);
-      --gold: #d89a17;
-      --gold-soft: #f1c766;
-      --gold-ui: #c8a96a;
-      --blue: #1f6fff;
-      --blue-soft: #7aa7ff;
-      --silver: #cfd6df;
-      --shadow: rgba(0,0,0,.45);
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background:
-        linear-gradient(rgba(4,7,13,.94), rgba(4,7,13,.97)),
-        radial-gradient(circle at 15% 10%, rgba(31,111,255,.18), transparent 25%),
-        radial-gradient(circle at 85% 12%, rgba(216,154,23,.14), transparent 22%),
-        radial-gradient(circle at 50% 100%, rgba(191,201,216,.08), transparent 24%),
-        #04070d;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("darkblue transparent logo.png") center 180px / min(54vw, 760px) no-repeat;
-      opacity: 0.18;
-      pointer-events: none;
-      z-index: 0;
-      filter:
-        brightness(1.3)
-        contrast(1.1)
-        saturate(1.2)
-        drop-shadow(0 0 40px rgba(31,111,255,.2))
-        drop-shadow(0 0 30px rgba(216,154,23,.15));
-    }
-
-    a {
-      color: var(--gold-soft);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 22px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .compact-banner {
-      text-align: center;
-      margin: 12px 0 8px;
-      border-bottom: 1px solid rgba(200,169,106,0.15);
-      padding-bottom: 10px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .compact-banner img {
-      width: 640px;
-      max-width: 92%;
-      height: auto;
-      display: inline-block;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-    }
-
-    .banner-pill {
-      margin-top: 10px;
-      display: inline-block;
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: .12em;
-      color: var(--gold-ui);
-      border: 1px solid rgba(200,169,106,0.25);
-      background: rgba(255,255,255,0.03);
-      text-transform: uppercase;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(8,10,16,.82);
-      border-bottom: 1px solid rgba(216,154,23,.20);
-    }
-
-    .nav {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand img {
-      height: 46px;
-      width: auto;
-      filter:
-        drop-shadow(0 8px 18px rgba(216,154,23,.16))
-        drop-shadow(0 0 20px rgba(31,111,255,.10));
-    }
-
-    .brand-title {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-title strong {
-      letter-spacing: .18em;
-      font-size: 15px;
-      color: #eef2f8;
-      text-transform: uppercase;
-    }
-
-    .brand-title span {
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: .03em;
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      letter-spacing: .02em;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-      user-select: none;
-    }
-
-    .cta:hover,
-    .cta:focus {
-      transform: translateY(-1px);
-    }
-
-    .cta.primary {
-      color: #08111d;
-      background: linear-gradient(135deg, var(--gold-soft), var(--gold), #f4e2a0);
-      box-shadow: 0 14px 30px rgba(216,154,23,.22);
-    }
-
-    .cta.secondary {
-      color: #e2e8f3;
-      background: rgba(255,255,255,.03);
-      border-color: rgba(207,214,223,.22);
-    }
-
-    .hero {
-      padding: 62px 0 46px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(216,154,23,.16);
-      color: var(--gold-soft);
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(40px, 6vw, 68px);
-      line-height: .98;
-      letter-spacing: -0.05em;
-    }
-
-    .metallic {
-      background: linear-gradient(135deg, #ffffff 0%, #d89a17 34%, #f6d98c 54%, #8fb2ff 76%, #eef4ff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lead {
-      margin: 0;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 26px;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .pill {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(216,154,23,.18);
-      background: rgba(255,255,255,.025);
-      color: #dde6f3;
-      font-size: 13px;
-    }
-
-    .hero-card,
-    .card {
-      background: linear-gradient(180deg, rgba(18,24,38,.82), rgba(10,14,24,.90));
-      border: 1px solid rgba(207,214,223,.12);
-      border-radius: 24px;
-      box-shadow: 0 24px 60px var(--shadow);
-    }
-
-    .hero-card,
-    .card {
-      padding: 24px;
-    }
-
-    .hero-card h3,
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      color: #eef4ff;
-    }
-
-    .muted { color: var(--muted); }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .stat {
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(216,154,23,.14);
-      background: rgba(255,255,255,.025);
-    }
-
-    .stat .label {
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-    }
-
-    .stat .value {
-      margin-top: 6px;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--gold-soft);
-    }
-
-    .section {
-      padding: 40px 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section h2 {
-      margin: 0 0 10px;
-      font-size: clamp(30px, 4vw, 42px);
-      letter-spacing: -0.04em;
-      color: #eef4ff;
-    }
-
-    .section .sub {
-      margin: 0 0 24px;
-      max-width: 760px;
-      color: var(--muted);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    ul.clean {
-      list-style: none;
-      padding: 0;
-      margin: 14px 0 0;
-    }
-
-    ul.clean li {
-      padding: 11px 0;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: var(--muted);
-    }
-
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .price-card.featured {
-      border-color: rgba(212,175,55,.50);
-      transform: translateY(-6px);
-      box-shadow:
-        0 28px 65px rgba(212,175,55,.16),
-        0 0 20px rgba(212,175,55,.08);
-    }
-
-    .price-card.featured:hover {
-      transform: translateY(-8px);
-      box-shadow:
-        0 32px 75px rgba(212,175,55,.22),
-        0 0 25px rgba(212,175,55,.12);
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .04em;
-      background: rgba(216,154,23,.12);
-      color: var(--gold-soft);
-      border: 1px solid rgba(216,154,23,.22);
-      margin-bottom: 12px;
-    }
-
-    .price {
-      font-size: 42px;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      font-weight: 900;
-      margin: 10px 0 4px;
-      color: #eef4ff;
-    }
-
-    .small {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .contact-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .contact-list div {
-      margin: 12px 0;
-      color: var(--muted);
-    }
-
-    .contact-list strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--gold-soft);
-    }
-
-    form {
-      display: grid;
-      gap: 12px;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      border: 1px solid rgba(207,214,223,.16);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      border-radius: 14px;
-      padding: 14px 16px;
-      font: inherit;
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    .faq details {
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 14px 0;
-    }
-
-    .faq summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: #eef4ff;
-      list-style: none;
-    }
-
-    .faq summary::-webkit-details-marker {
-      display: none;
-    }
-
-    footer {
-      padding: 30px 0 56px;
-      color: var(--muted);
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-bar {
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding-top: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-note {
-      margin-top: 10px;
-      font-size: 12px;
-      color: #9ba7ba;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2,
-      .pricing,
-      .contact-box,
-      .stat-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 56px;
-      }
-
-      .compact-banner img {
-        width: 94%;
-        max-width: 94%;
-      }
-
-      body::before {
-        background: url("darkblue transparent logo.png") center 160px / 92vw no-repeat;
-      }
-    }
-  </style>
 </head>
+
 <body>
 
-  <div class="compact-banner">
-    <img
-      src="Equita Banner final.png"
-      alt="Equitas Group Banner"
-      loading="eager"
-      decoding="async"
-    />
+<div class="wrap">
 
-    <div class="banner-pill">
-      Strategic Holdings • Advisory • Growth
-    </div>
+  <!-- BANNER -->
+  <div class="banner">
+    <img src="Equita Banner final.png" alt="Equitas Banner">
   </div>
 
+  <!-- NAV -->
   <div class="topbar">
-    <div class="wrap nav">
-      <div class="brand">
-        <img src="3d reflection r FINAL.png" alt="Equitas logo" />
-        <div class="brand-title">
-          <strong>Equitas Group</strong>
-          <span>Strategic Holdings</span>
-        </div>
+    <div class="brand">EQUITAS GROUP</div>
+    <div class="nav">
+      <a href="#">About</a>
+      <a href="#">Focus</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1><span class="gold">Built for Structure.</span><br>Positioned for Growth.</h1>
+    <p class="sub">
+      Equitas Group is a holding company focused on strategic ownership,
+      disciplined execution, and long-term enterprise value.
+    </p>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <h2>About</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Strategic Holdings</h3>
+        <p>Focused on ownership and long-term value creation.</p>
       </div>
 
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#focus">Focus</a>
-        <a href="#structure">Structure</a>
-        <a href="#contact">Contact</a>
+      <div class="card">
+        <h3>Advisory</h3>
+        <p>Structured thinking and disciplined decision-making.</p>
+      </div>
+
+      <div class="card">
+        <h3>Growth</h3>
+        <p>Scalable, aligned, and execution-focused expansion.</p>
       </div>
     </div>
   </div>
 
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">Institutional • Disciplined • Growth-Oriented</div>
-
-        <h1><span class="metallic">Built for Structure.</span><br />Positioned for Growth.</h1>
-
-        <p class="lead">
-          Equitas Group is a holding company focused on disciplined ownership, strategic advisory insight, and long-term value creation across aligned ventures and operating interests.
-        </p>
-
-        <p class="lead" style="margin-top:14px;">
-          Our approach centers on structure, execution, and scalable growth with a premium emphasis on strategic alignment, operational clarity, and disciplined decision-making.
-        </p>
-
-        <div class="hero-actions">
-          <a class="cta primary" href="#focus">Our Focus</a>
-          <a class="cta secondary" href="#contact">Contact</a>
-        </div>
-
-        <div class="pill-row">
-          <div class="pill">Strategic Holdings</div>
-          <div class="pill">Advisory Perspective</div>
-          <div class="pill">Growth-Oriented Execution</div>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <h3>Equitas Overview</h3>
-        <p class="muted">
-          A modern holdings platform built to preserve flexibility, pursue aligned opportunities, and support long-term enterprise value through disciplined structure and execution.
-        </p>
-
-        <div class="stat-row">
-          <div class="stat">
-            <div class="label">Model</div>
-            <div class="value">Holdings</div>
-          </div>
-
-          <div class="stat">
-            <div class="label">Approach</div>
-            <div class="value">Strategic</div>
-          </div>
-
-          <div class="stat">
-            <div class="label">Vision</div>
-            <div class="value">Scalable</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section class="section" id="about">
-    <div class="wrap">
-      <h2>About Equitas</h2>
-      <p class="sub">
-        Equitas Group is positioned as a holding company with a focus on strategic ownership, disciplined growth, and long-term value creation.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Strategic Holdings</h3>
-          <p class="muted">
-            Equitas is structured to hold and manage interests in ventures and assets aligned with long-term enterprise growth and operational discipline.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Advisory Perspective</h3>
-          <p class="muted">
-            The company emphasizes structured thinking, business judgment, and measured execution in evaluating and supporting opportunities.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Growth Orientation</h3>
-          <p class="muted">
-            Equitas is built to pursue scalable value through disciplined structure, operational awareness, and aligned strategic expansion.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="focus">
-    <div class="wrap">
-      <h2>Core Focus</h2>
-      <p class="sub">
-        Our focus remains on structure, capital discipline, and strategic execution.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Ownership & Oversight</h3>
-          <p class="muted">
-            Maintaining a disciplined framework for ownership, oversight, and enterprise positioning across aligned interests.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Operational Alignment</h3>
-          <p class="muted">
-            Supporting sound execution through structure, clarity, and scalable decision-making.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Long-Term Value</h3>
-          <p class="muted">
-            Building with an emphasis on durability, strategic leverage, and long-term value creation rather than short-term noise.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="structure">
-    <div class="wrap">
-      <h2>Strategic Framework</h2>
-      <p class="sub">
-        Equitas is designed around disciplined structure and institutional-style positioning.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>Disciplined Positioning</h3>
-          <p class="muted">
-            The Equitas framework emphasizes organizational clarity, measured expansion, and strategic control over long-term enterprise direction.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Institutional Mindset</h3>
-          <p class="muted">
-            Branding, structure, and execution are built to reflect authority, sophistication, and durable business credibility.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-      <p class="sub">
-        For strategic inquiries, partnerships, or business discussions, contact Equitas Group directly.
-      </p>
-
-      <div class="contact-box">
-        <div class="card contact-list">
-          <div>
-            <strong>Business Name</strong>
-            Equitas Group
-          </div>
-          <div>
-            <strong>Email</strong>
-            <a href="mailto:info@equitasholding.com">info@equitasholding.com</a>
-          </div>
-          <div>
-            <strong>Website</strong>
-            <a href="https://equitasholding.com">equitasholding.com</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <form>
-            <input type="text" placeholder="Full Name" />
-            <input type="email" placeholder="Email Address" />
-            <input type="text" placeholder="Company / Organization" />
-            <textarea placeholder="How can we help?"></textarea>
-            <button type="button" class="cta primary">Submit Inquiry</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section faq" id="faq">
-    <div class="wrap">
-      <h2>Frequently Asked Questions</h2>
-
-      <details>
-        <summary>What is Equitas Group?</summary>
-        <p class="muted">
-          Equitas Group is a holding company focused on strategic holdings, disciplined growth, and long-term value creation.
-        </p>
-      </details>
-
-      <details>
-        <summary>Does Equitas provide consumer products or subscriptions?</summary>
-        <p class="muted">
-          No. Equitas is positioned as a holding company and strategic enterprise platform, not a consumer subscription business.
-        </p>
-      </details>
-
-      <details>
-        <summary>What types of inquiries are appropriate?</summary>
-        <p class="muted">
-          Strategic discussions, aligned ventures, business opportunities, and general enterprise inquiries are appropriate channels for contact.
-        </p>
-      </details>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap footer-bar">
-      <div>
-        <strong>Equitas Group</strong><br />
-        Strategic Holdings • Advisory • Growth
-        <div class="footer-note">
-          Equitas Group is positioned as a holding company focused on disciplined structure, strategic alignment, and long-term enterprise value.
-        </div>
-      </div>
-
-      <div>
-        <a href="#about">About</a> ·
-        <a href="#focus">Focus</a> ·
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
+</div>
 
 </body>
 </html>
