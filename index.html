@@ -149,11 +149,13 @@
       object-fit: contain;
     }
     .metallic {
-      background: linear-gradient(135deg, #efcf87 0%, #9e7830 18%, #dfe8f5 38%, #7a9fd8 56%, #f0d28a 76%, #dce7f7 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+  background: linear-gradient(135deg, #efcf87 0%, #9e7830 18%, #dfe8f5 38%, #7a9fd8 56%, #f0d28a 76%, #dce7f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 700;
+}
 
     .hero {
       min-height: calc(100vh - 150px);
@@ -199,18 +201,17 @@
       max-width: 520px;
     }
     .hero-copy h1 {
-      margin-top: 10px;
-      font-size: clamp(24px, 3vw, 38px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-    }
+  font-size: clamp(34px, 4.5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
     .hero-copy p {
-      margin-top: 12px;
-      font-size: 14px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.74);
-    }
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.78);
+}
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
