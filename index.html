@@ -1,136 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Equitas Group LLC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equitas Group LLC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at center, rgba(24, 74, 155, 0.16), transparent 34%),
+        linear-gradient(180deg, #020814 0%, #041122 44%, #020814 100%);
+      color: #eef3fb;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
 
-<style>
-body {
-  margin:0;
-  font-family: Inter, Arial, sans-serif;
-  background:#020814;
-  color:white;
+    .bg-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .bg-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(34, 91, 188, 0.18), transparent 36%),
+        radial-gradient(circle at center, rgba(230, 186, 96, 0.08), transparent 18%);
+    }
+    .bg-emblem, .bg-emblem-soft {
+      display: block;
+      width: min(840px, 72vw);
+      height: auto;
+      transform: translate3d(0,0,0);
+      will-change: transform;
+    }
+    .bg-emblem {
+      opacity: 0.16;
+      filter: drop-shadow(0 0 55px rgba(36, 102, 219, 0.34));
+      position: relative;
+      z-index: 2;
+    }
+    .bg-emblem-soft {
+      position: absolute;
+      width: min(900px, 76vw);
+      opacity: 0.08;
+      filter: blur(10px);
+      z-index: 1;
+    }
+    .gold-streak {
+      position: fixed;
+      top: -10%;
+      left: -15%;
+      width: 130%;
+      height: 220px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212,165,77,0) 24%, rgba(212,165,77,0.18) 50%, rgba(255,232,180,0.08) 58%, rgba(212,165,77,0) 76%, transparent 100%);
+      opacity: 0;
+      transform: translateX(-35%) rotate(-8deg);
+      filter: blur(12px);
+      z-index: 3;
+      will-change: transform, opacity;
+    }
+
+    .shell { position: relative; z-index: 5; }
+    .container { width: min(1280px, calc(100% - 44px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(2, 8, 20, 0.44);
+      backdrop-filter: blur(16px);
+    }
+    .nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  min-height: 88px;
 }
-
-/* NAV */
-.nav {
-  background:rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
+    .brand {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
 }
-
-.nav-inner {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 24px;
-  min-height:88px;
+    .brand-logo {
+  width: 460px;
+  max-width: 48vw;
+  max-height: 110px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+  background: transparent;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 14px rgba(212,165,77,0.18));
 }
+    .brand-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .subcopy {
+      margin-top: 4px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.74);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.84);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a:hover { color: #e2b867; }
 
-.brand-logo {
-  width:460px;
-  max-width:48vw;
-  max-height:110px;
+    .banner {
+      padding: 18px 0 0;
+    }
+    .banner-strip {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(90deg, rgba(7,18,38,0.42), rgba(7,18,38,0.18));
+      backdrop-filter: blur(14px);
+      min-height: 90px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .banner-logo {
+      width: 220px;
+      max-width: 30vw;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .metallic {
+      background: linear-gradient(135deg, #efcf87 0%, #9e7830 18%, #dfe8f5 38%, #7a9fd8 56%, #f0d28a 76%, #dce7f7 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .hero {
+      min-height: calc(100vh - 150px);
+      display: flex;
+      align-items: center;
+      padding: 42px 0 72px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(135deg, rgba(7,18,38,0.32), rgba(4,10,24,0.14));
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 70px rgba(0,0,0,0.24);
+    }
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,215,140,0.05), transparent 26%, rgba(129,171,224,0.04) 60%, transparent 100%);
+      pointer-events: none;
+    }
+    .panel::after {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: -28px;
+      height: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.01));
+      filter: blur(14px);
+      opacity: 0.16;
+      pointer-events: none;
+    }
+    .hero-copy {
+      padding: 24px 26px;
+      max-width: 520px;
+    }
+    .hero-copy h1 {
+  margin-top: 18px;
+  font-size: clamp(30px, 3.2vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
-
-.nav-links a {
-  margin-left:24px;
-  color:white;
-  text-decoration:none;
+    .hero-copy p {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.78);
 }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .btn {
+      padding: 11px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: #edf3fb;
+      transition: 0.2s ease;
+    }
+    .btn:hover { border-color: rgba(212,165,77,0.4); color: #e2b867; }
+    .btn-primary {
+      background: linear-gradient(135deg, #efcf87, #9e7830 55%, #dce7f7);
+      color: #06101f;
+      border-color: rgba(212,165,77,0.55);
+    }
 
-/* BANNER */
-.banner-strip {
-  border:1px solid rgba(255,255,255,0.08);
-  background: linear-gradient(90deg, rgba(7,18,38,0.42), rgba(7,18,38,0.18));
-  min-height:120px;
-  padding:26px 32px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
+    .card-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .mini {
+      padding: 20px 22px;
+    }
+    .mini h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .mini p {
+      font-size: 14px;
+      line-height: 1.64;
+      color: rgba(255,255,255,0.74);
+    }
 
-.banner-left {
-  display:flex;
-  flex-direction:column;
-}
+    section.content { padding: 70px 0; }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: #d4a54d;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(25px, 2.6vw, 36px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      max-width: 880px;
+    }
+    .body {
+      margin-top: 16px;
+      color: rgba(255,255,255,0.76);
+      line-height: 1.78;
+      font-size: 15px;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .pad { padding: 28px; }
+    .pill-grid, .service-grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .pill-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .service-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    .pill, .service {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.05);
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+    .service h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .service p, .pill {
+      font-size: 14px;
+      line-height: 1.66;
+      color: rgba(255,255,255,0.76);
+    }
+    .mission {
+      padding: 34px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 24px;
+    }
+    .contact-list { display: grid; gap: 22px; }
+    .contact-item small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #d4a54d;
+      margin-bottom: 8px;
+    }
+    .contact-item div {
+      font-size: 16px;
+      color: rgba(255,255,255,0.86);
+    }
 
-.eyebrow {
-  font-size:18px;
-  letter-spacing:0.25em;
-  color:#d4a54d;
-}
-
-.metallic {
-  background: linear-gradient(135deg,#efcf87,#9e7830,#dfe8f5,#7a9fd8,#f0d28a,#dce7f7);
-  -webkit-background-clip:text;
-  color:transparent;
-  font-size:52px;
-  font-weight:700;
-  margin-top:8px;
-}
-
-.banner-logo {
-  width:320px;
-}
-
-/* HERO */
-.hero {
-  padding:80px 40px;
-}
-
-.hero h1 {
-  font-size:42px;
-}
-
-.hero p {
-  font-size:16px;
-  color:#ccc;
-}
-
-</style>
+    @media (max-width: 1100px) {
+      .hero-grid, .two-col, .contact-grid, .service-grid { grid-template-columns: 1fr 1fr; }
+      .card-stack { grid-column: 1 / -1; }
+      .brand-logo, .banner-logo { width: 180px; }
+    }
+    @media (max-width: 820px) {
+      .container { width: min(1280px, calc(100% - 28px)); }
+      .nav-inner, .hero-grid, .two-col, .contact-grid, .service-grid, .pill-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .nav-links { justify-content: flex-start; gap: 16px; }
+      .brand-logo, .banner-logo { width: 160px; max-width: 56vw; }
+      .bg-emblem { width: min(600px, 102vw); opacity: 0.18; }
+      .bg-emblem-soft { width: min(660px, 108vw); }
+    }
+  </style>
 </head>
-
 <body>
-
-<header class="nav">
-  <div class="nav-inner">
-    <img src="equitas-logo.png" class="brand-logo">
-
-    <div class="nav-links">
-      <a href="#">About</a>
-      <a href="#">Focus</a>
-      <a href="#">Mission</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-</header>
-
-<!-- BANNER -->
-<div class="banner-strip">
-  <div class="banner-left">
-    <div class="eyebrow">Equitas Group LLC</div>
-    <div class="metallic">Strength. Growth. Trust.</div>
+  <div class="bg-wrap">
+    <div class="bg-glow"></div>
+    <div class="gold-streak" id="goldStreak"></div>
+    <img class="bg-emblem-soft" id="bgLogoSoft" src="3d reflection r FINAL.png" alt="Equitas Center Emblem" />
+    <img class="bg-emblem" id="bgLogo" src="3d reflection r FINAL.png" alt="Equitas Center Emblem" />
   </div>
 
-  <img src="Equita Banner final.png" class="banner-logo">
-</div>
+  <div class="shell">
+    <header class="nav">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img class="brand-logo" src="equitas-logo.png" alt="Equitas Group LLC logo" onerror="this.style.display='none'; document.getElementById('brandTextFallback').style.display='block';">
+          <div id="brandFallback" class="metallic" style="display:none; font-size:28px; font-weight:800; letter-spacing:-0.03em; line-height:1;">EQUITAS</div>
+          <div id="brandTextFallback" class="metallic" style="display:none; font-size:32px; font-weight:800; letter-spacing:-0.03em; line-height:1;">EQUITAS</div>
+          
+            <div class="subcopy">Holding company strategy, oversight, and long-term value stewardship</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#focus">Focus</a>
+          <a href="#mission">Mission</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Stewarding growth, governance, and long-term enterprise value.</h1>
-  <p>Equitas Group LLC operates as a holding company focused on ownership, strategy, and disciplined growth.</p>
-</section>
+    <section class="banner">
+      <div class="container">
+        <div class="banner-strip panel">
+          <div>
+            <div class="eyebrow">Equitas Group LLC</div>
+            <div class="metallic" style="margin-top:4px; font-size:clamp(14px,1.2vw,18px); font-weight:700; letter-spacing:-0.02em;">Strength. Growth. Trust.</div>
+          </div>
+          <div id="bannerFallback" class="metallic" style="display:none; font-size:26px; font-weight:800; letter-spacing:-0.03em;">EQUITAS GROUP LLC</div>
+          <img class="banner-logo" src="Equita Banner final.png" alt="Equitas banner logo" onerror="this.style.display='none'; document.getElementById('bannerFallback').style.display='block';" />
+        </div>
+      </div>
+    </section>
 
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="panel hero-copy">
+            <div class="eyebrow">Holding Company • Strategic Oversight • Long-Term Value</div>
+            <h1 class="metallic">Stewarding growth, governance, and long-term enterprise value.</h1>
+            <p>Equitas Group LLC operates as a holding company focused on ownership, strategic direction, governance, and disciplined portfolio growth.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#mission">View Mission</a>
+              <a class="btn" href="#focus">Explore Focus</a>
+            </div>
+          </div>
+
+          <div class="card-stack">
+            <div class="panel mini">
+              <h3 class="metallic">Portfolio Oversight</h3>
+              <p>Active stewardship across affiliated ventures with an emphasis on structure, accountability, and sustainable growth.</p>
+            </div>
+            <div class="panel mini">
+              <h3 class="metallic">Strategic Direction</h3>
+              <p>High-level business guidance designed to align operations, positioning, and long-term enterprise objectives.</p>
+            </div>
+            <div class="panel mini">
+              <h3 class="metallic">Capital &amp; Risk Discipline</h3>
+              <p>A measured approach to financial organization, legal awareness, and decisions that preserve enterprise value.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="content">
+        <div class="container two-col">
+          <div class="panel pad">
+            <div class="section-label">About Equitas</div>
+            <div class="section-title metallic">A refined holding company built for stewardship, structure, and growth.</div>
+            <div class="body">Equitas Group LLC operates as a holding company designed to own, support, and strategically guide business interests with a refined focus on long-term growth, sound structure, and disciplined oversight.</div>
+          </div>
+          <div class="panel pad">
+            <div class="section-label">Core Standards</div>
+            <div class="pill-grid">
+              <div class="pill">Portfolio Stewardship</div>
+              <div class="pill">Long-Term Growth</div>
+              <div class="pill">Strategic Discipline</div>
+              <div class="pill">Governance</div>
+              <div class="pill">Risk Awareness</div>
+              <div class="pill">Value Preservation</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="focus" class="content">
+        <div class="container">
+          <div class="section-label">Holding Company Focus</div>
+          <div class="section-title metallic">Strategic oversight built for ownership, growth, and enterprise stability.</div>
+          <div class="service-grid" style="margin-top: 28px;">
+            <div class="service panel">
+              <h3 class="metallic">Subsidiary Oversight</h3>
+              <p>Centralized direction and support for affiliated businesses to promote consistency, efficiency, and aligned execution.</p>
+            </div>
+            <div class="service panel">
+              <h3 class="metallic">Strategic Growth</h3>
+              <p>Focused planning for expansion, brand development, market positioning, and long-term enterprise value creation.</p>
+            </div>
+            <div class="service panel">
+              <h3 class="metallic">Operational Governance</h3>
+              <p>Structured oversight of systems, decision-making, and organizational frameworks across company interests.</p>
+            </div>
+            <div class="service panel">
+              <h3 class="metallic">Legal &amp; Compliance Awareness</h3>
+              <p>A disciplined operating posture informed by contracts, compliance sensitivity, and defensible business practices.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="content">
+        <div class="container">
+          <div class="panel mission">
+            <div class="section-label">Mission Statement</div>
+            <div class="section-title metallic">Purpose, discipline, and long-term stewardship.</div>
+            <div class="body">Equitas Group LLC is a holding company dedicated to acquiring, supporting, and strategically guiding business interests through disciplined oversight, refined structure, and long-term enterprise vision. Rooted in legal insight, strategic precision, and uncompromising integrity, Equitas focuses on value preservation, operational strength, responsible growth, and sound governance across its portfolio.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="content">
+        <div class="container contact-grid">
+          <div class="panel pad">
+            <div class="section-label">Contact</div>
+            <div class="section-title metallic">Position your enterprise with clarity, structure, and long-term vision.</div>
+            <div class="body">Equitas welcomes inquiries regarding holding company strategy, portfolio growth, brand expansion, and disciplined business oversight.</div>
+          </div>
+          <div class="panel pad">
+            <div class="contact-list">
+              <div class="contact-item"><small>Email</small><div>info@equitaholding.com</div></div>
+              <div class="contact-item"><small>Website</small><div>www.equitasholding.com</div></div>
+              <div class="contact-item"><small>Availability</small><div>By appointment and strategic consultation</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const bgLogo = document.getElementById('bgLogo');
+      const bgLogoSoft = document.getElementById('bgLogoSoft');
+      const streak = document.getElementById('goldStreak');
+      function animateScene() {
+        const y = window.scrollY || 0;
+        if (bgLogo) bgLogo.style.transform = 'translate3d(0,' + (y * 0.08) + 'px,0)';
+        if (bgLogoSoft) bgLogoSoft.style.transform = 'translate3d(0,' + (y * 0.05) + 'px,0)';
+        if (streak) {
+          const p = (y % 900) / 900;
+          const o = Math.min(0.22, Math.max(0, Math.sin(p * Math.PI) * 0.22));
+          streak.style.opacity = o.toFixed(3);
+          streak.style.transform = 'translateX(' + (-35 + p * 70).toFixed(2) + '%) rotate(-8deg)';
+        }
+      }
+      animateScene();
+      window.addEventListener('scroll', animateScene, { passive: true });
+    })();
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
