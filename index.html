@@ -31,13 +31,13 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at center, rgba(20, 84, 182, 0.26), transparent 32%),
-        radial-gradient(circle at center, rgba(225, 176, 78, 0.10), transparent 18%);
+        radial-gradient(circle at center, rgba(20, 84, 182, 0.28), transparent 34%),
+        radial-gradient(circle at center, rgba(225, 176, 78, 0.12), transparent 20%);
     }
     .background-logo {
-      width: min(960px, 86vw);
-      opacity: 0.22;
-      filter: drop-shadow(0 0 60px rgba(18, 78, 170, 0.45));
+      width: min(980px, 88vw);
+      opacity: 0.18;
+      filter: drop-shadow(0 0 65px rgba(18, 78, 170, 0.42));
       position: relative;
       z-index: 1;
       transform: translate3d(0, 0, 0);
@@ -45,16 +45,16 @@
     }
     .background-logo.depth {
       position: absolute;
-      width: min(1040px, 92vw);
-      opacity: 0.10;
-      filter: blur(8px);
+      width: min(1060px, 94vw);
+      opacity: 0.08;
+      filter: blur(10px);
       z-index: 0;
     }
     .gold-streak {
       position: fixed;
       inset: -20% -10% auto -10%;
       height: 220px;
-      background: linear-gradient(90deg, transparent 0%, rgba(212,165,77,0.00) 22%, rgba(212,165,77,0.22) 50%, rgba(255,222,158,0.10) 58%, rgba(212,165,77,0.00) 78%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(212,165,77,0.00) 22%, rgba(212,165,77,0.22) 50%, rgba(255,222,158,0.11) 58%, rgba(212,165,77,0.00) 78%, transparent 100%);
       transform: translateX(-120%) rotate(-10deg);
       opacity: 0;
       pointer-events: none;
@@ -71,7 +71,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(16px);
-      background: rgba(2, 8, 20, 0.58);
+      background: rgba(2, 8, 20, 0.55);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .nav-inner {
@@ -79,7 +79,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 18px 0;
+      padding: 16px 0;
     }
     .brand {
       display: flex;
@@ -103,7 +103,7 @@
       font-size: 11px;
       color: #d4a54d;
     }
-    .brand-subtext { color: rgba(255,255,255,0.72); font-size: 14px; margin-top: 4px; }
+    .brand-subtext { color: rgba(255,255,255,0.72); font-size: 13px; margin-top: 4px; }
     .nav-links {
       display: flex;
       gap: 28px;
@@ -112,28 +112,42 @@
     }
     .nav-links a:hover { color: #e0b767; }
 
-    section { padding: 92px 0; position: relative; }
+    section { padding: 84px 0; position: relative; }
 
+    .lux-gradient {
+      background: linear-gradient(135deg, #e4c57a 0%, #9e7930 18%, #dfe7f2 36%, #7ea2d8 52%, #f3d48a 72%, #d9e4f6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
     .hero {
-      min-height: 100vh;
+      min-height: calc(100vh - 90px);
       display: flex;
       align-items: center;
-      padding-top: 40px;
+      padding-top: 10px;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: start;
     }
     .glass-panel {
       border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(135deg, rgba(7,18,38,0.72), rgba(4,10,24,0.48));
+      background: linear-gradient(135deg, rgba(7,18,38,0.62), rgba(4,10,24,0.38));
       backdrop-filter: blur(16px);
-      border-radius: 34px;
+      border-radius: 32px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.38);
       position: relative;
       overflow: hidden;
+    }
+    .glass-panel::before,
+    .mission-block::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,215,140,0.07), transparent 22%, rgba(129,171,224,0.05) 58%, transparent 100%);
+      pointer-events: none;
     }
     .glass-panel::after,
     .mission-block::after {
@@ -149,66 +163,74 @@
       filter: blur(16px);
       pointer-events: none;
     }
-    .hero-card { padding: 52px; }
+    .hero-card { padding: 34px 36px; }
     .hero h1 {
-      font-size: clamp(40px, 5.8vw, 76px);
-      line-height: 1.03;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin-top: 18px;
-      max-width: 980px;
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-top: 10px;
+      max-width: 760px;
     }
     .hero p {
-      max-width: 760px;
-      margin-top: 28px;
-      color: rgba(255,255,255,0.78);
-      font-size: 19px;
-      line-height: 1.9;
+      max-width: 680px;
+      margin-top: 18px;
+      color: rgba(255,255,255,0.76);
+      font-size: 16px;
+      line-height: 1.75;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 34px;
+      gap: 12px;
+      margin-top: 24px;
     }
     .btn-primary,
     .btn-secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 24px;
+      padding: 12px 20px;
       border-radius: 999px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       transition: 0.25s ease;
     }
     .btn-primary {
-      background: linear-gradient(135deg, #d4a54d, #89601f);
+      background: linear-gradient(135deg, #f0cf86, #9a7027 55%, #d9e4f6);
       color: #07101f;
       border: 1px solid rgba(212,165,77,0.55);
       box-shadow: 0 10px 30px rgba(201,154,58,0.24);
     }
     .btn-primary:hover { transform: translateY(-1px); }
     .btn-secondary {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.12);
       color: rgba(255,255,255,0.92);
     }
     .btn-secondary:hover { border-color: rgba(212,165,77,0.45); color: #e0b767; }
 
-    .stack { display: grid; gap: 18px; }
+    .stack { display: grid; gap: 16px; }
     .mini-card {
       border: 1px solid rgba(255,255,255,0.08);
       background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border-radius: 28px;
-      padding: 28px;
+      border-radius: 26px;
+      padding: 24px;
       backdrop-filter: blur(12px);
       box-shadow: 0 18px 50px rgba(0,0,0,0.32);
       position: relative;
       overflow: hidden;
     }
-    .mini-card h3 { color: #e0b767; font-size: 23px; margin-bottom: 12px; }
-    .mini-card p { color: rgba(255,255,255,0.74); line-height: 1.75; font-size: 16px; }
+    .mini-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f0cf86, #dfe7f2 40%, #7ea2d8 68%, #f3d48a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .mini-card p { color: rgba(255,255,255,0.74); line-height: 1.7; font-size: 15px; }
 
     .section-label {
       text-transform: uppercase;
@@ -218,9 +240,9 @@
       margin-bottom: 16px;
     }
     .section-title {
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(30px, 3.8vw, 48px);
       line-height: 1.08;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: -0.03em;
       max-width: 900px;
     }
@@ -229,18 +251,18 @@
       grid-template-columns: 1fr 1fr;
       gap: 24px;
     }
-    .panel-pad { padding: 38px; }
+    .panel-pad { padding: 34px; }
     .body-copy {
       color: rgba(255,255,255,0.76);
-      line-height: 1.92;
-      font-size: 17px;
-      margin-top: 22px;
+      line-height: 1.86;
+      font-size: 16px;
+      margin-top: 20px;
     }
     .standards-grid,
     .services-grid {
       display: grid;
       gap: 18px;
-      margin-top: 26px;
+      margin-top: 24px;
     }
     .standards-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .services-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
@@ -257,7 +279,7 @@
       font-size: 15px;
     }
     .service-card {
-      padding: 28px;
+      padding: 26px;
       transition: transform 0.22s ease, border-color 0.22s ease;
       position: relative;
       overflow: hidden;
@@ -266,20 +288,28 @@
       transform: translateY(-4px);
       border-color: rgba(212,165,77,0.34);
     }
-    .service-card h3 { font-size: 22px; margin-bottom: 14px; }
-    .service-card p { color: rgba(255,255,255,0.74); line-height: 1.78; }
+    .service-card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f0cf86, #dfe7f2 35%, #7ea2d8 70%, #f3d48a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .service-card p { color: rgba(255,255,255,0.74); line-height: 1.74; }
 
     .mission-block {
-      padding: 50px;
-      border-radius: 38px;
-      border: 1px solid rgba(212,165,77,0.18);
-      background: linear-gradient(135deg, rgba(8,21,44,0.82), rgba(3,7,18,0.66));
+      padding: 44px;
+      border-radius: 36px;
+      border: 1px solid rgba(212,165,77,0.24);
+      background: linear-gradient(135deg, rgba(8,21,44,0.74), rgba(3,7,18,0.56));
       box-shadow: 0 24px 80px rgba(0,0,0,0.40);
       backdrop-filter: blur(16px);
       position: relative;
       overflow: hidden;
     }
-    .mission-block p { margin-top: 24px; font-size: 18px; line-height: 2; color: rgba(255,255,255,0.80); max-width: 1080px; }
+    .mission-block p { margin-top: 22px; font-size: 17px; line-height: 1.95; color: rgba(255,255,255,0.82); max-width: 1080px; }
 
     .contact-grid {
       display: grid;
@@ -295,7 +325,7 @@
       font-size: 11px;
       margin-bottom: 8px;
     }
-    .contact-item div { font-size: 19px; color: rgba(255,255,255,0.86); }
+    .contact-item div { font-size: 18px; color: rgba(255,255,255,0.86); }
 
     @media (max-width: 1100px) {
       .hero-grid,
@@ -315,9 +345,9 @@
       .nav-links { flex-wrap: wrap; gap: 16px; }
       .hero-card,
       .panel-pad,
-      .mission-block { padding: 28px; }
+      .mission-block { padding: 26px; }
       .container { width: min(1240px, calc(100% - 28px)); }
-      .background-logo { width: min(760px, 108vw); opacity: 0.17; }
+      .background-logo { width: min(760px, 108vw); opacity: 0.16; }
       .background-logo.depth { width: min(820px, 112vw); }
       .brand-subtext { font-size: 13px; }
     }
@@ -327,8 +357,8 @@
   <div class="background-logo-wrap">
     <div class="background-logo-glow"></div>
     <div class="gold-streak" id="goldStreak"></div>
-    <img class="background-logo depth" id="bgLogoDepth" src="darkblue transparent logo(4).png" alt="Equitas Background Logo" />
-    <img class="background-logo" id="bgLogo" src="darkblue transparent logo(4).png" alt="Equitas Background Logo" />
+    <img class="background-logo depth" id="bgLogoDepth" src="darkblue transparent logo(5).png" alt="Equitas Background Logo" />
+    <img class="background-logo" id="bgLogo" src="darkblue transparent logo(5).png" alt="Equitas Background Logo" />
   </div>
 
   <div class="site-shell">
@@ -353,15 +383,15 @@
     </header>
 
     <main>
-      <section style="padding: 34px 0 0;">
+      <section style="padding: 28px 0 0;">
         <div class="container">
-          <div class="glass-panel panel-pad" style="padding: 18px 26px; display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:92px;">
+          <div class="glass-panel panel-pad" style="padding: 14px 22px; display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:76px;">
             <div>
               <div class="eyebrow">Equitas Group LLC</div>
-              <div style="margin-top:8px; font-size: clamp(18px, 2vw, 28px); font-weight:600; color:#f7f8fb;">Holding company strategy, oversight, and long-term enterprise stewardship.</div>
+              <div class="lux-gradient" style="margin-top:6px; font-size: clamp(15px, 1.5vw, 22px); font-weight:700; letter-spacing:-0.02em;">Holding company oversight, enterprise stewardship, and long-term value creation.</div>
             </div>
             <div style="display:flex; align-items:center; gap:14px;">
-              <img src="darkblue transparent logo(3).png" alt="Equitas Banner Logo" style="width:72px; height:72px; object-fit:contain; display:block;" onerror="this.style.display='none'" />
+              <img src="darkblue transparent logo(3).png" alt="Equitas Banner Logo" style="width:56px; height:56px; object-fit:contain; display:block; opacity:.95;" onerror="this.style.display='none'" />
             </div>
           </div>
         </div>
@@ -370,10 +400,9 @@
         <div class="container hero-grid">
           <div class="glass-panel hero-card">
             <div class="eyebrow">Holding Company • Strategic Oversight • Long-Term Value</div>
-            <h1>A sophisticated holding company built to oversee, strengthen, and grow enduring business value.</h1>
+            <h1 class="lux-gradient">A refined holding company positioned to steward, strengthen, and grow enduring enterprise value.</h1>
             <p>
-              Equitas Group LLC is positioned as a holding company focused on ownership, strategic direction,
-              operational oversight, and disciplined long-range growth across its business interests.
+              Equitas Group LLC is focused on ownership, strategic direction, operational governance, and disciplined long-range growth across its affiliated business interests.
             </p>
             <div class="hero-actions">
               <a class="btn-primary" href="#contact">Schedule a Consultation</a>
@@ -402,7 +431,7 @@
         <div class="container two-col">
           <div class="glass-panel panel-pad">
             <div class="section-label">About Equitas</div>
-            <div class="section-title">A refined holding company built for stewardship, structure, and growth.</div>
+            <div class="section-title lux-gradient">A refined holding company built for stewardship, structure, and growth.</div>
             <div class="body-copy">
               Equitas Group LLC operates as a holding company designed to own, support, and strategically guide business interests
               with a refined focus on long-term growth, sound structure, and disciplined oversight. With a foundation shaped by legal
@@ -428,7 +457,7 @@
       <section id="focus">
         <div class="container">
           <div class="section-label">Holding Company Focus</div>
-          <div class="section-title">Strategic oversight built for ownership, growth, and enterprise stability.</div>
+          <div class="section-title lux-gradient">Strategic oversight built for ownership, growth, and enterprise stability.</div>
           <div class="services-grid" style="margin-top: 32px;">
             <div class="service-card">
               <h3>Subsidiary Oversight</h3>
@@ -454,7 +483,7 @@
         <div class="container">
           <div class="mission-block">
             <div class="section-label">Mission Statement</div>
-            <div class="section-title">Built to inspire confidence through structure, sophistication, and disciplined stewardship.</div>
+            <div class="section-title lux-gradient">Built to inspire confidence through structure, sophistication, and disciplined stewardship.</div>
             <p>
               Equitas Group LLC is a holding company dedicated to acquiring, supporting, and strategically guiding business interests
               through disciplined oversight, refined structure, and long-term enterprise vision. Rooted in legal insight, strategic precision,
@@ -470,7 +499,7 @@
         <div class="container contact-grid">
           <div class="glass-panel panel-pad">
             <div class="section-label">Contact</div>
-            <div class="section-title">Position your enterprise with clarity, structure, and long-term vision.</div>
+            <div class="section-title lux-gradient">Position your enterprise with clarity, structure, and long-term vision.</div>
             <div class="body-copy">
               Equitas welcomes inquiries regarding holding company strategy, portfolio growth, brand expansion, and disciplined business oversight.
             </div>
