@@ -35,18 +35,32 @@
         radial-gradient(circle at center, rgba(225, 176, 78, 0.10), transparent 18%);
     }
     .background-logo {
-      width: min(900px, 84vw);
-      opacity: 0.18;
+      width: min(960px, 86vw);
+      opacity: 0.22;
       filter: drop-shadow(0 0 60px rgba(18, 78, 170, 0.45));
       position: relative;
       z-index: 1;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
     }
     .background-logo.depth {
       position: absolute;
-      width: min(980px, 88vw);
-      opacity: 0.08;
+      width: min(1040px, 92vw);
+      opacity: 0.10;
       filter: blur(8px);
       z-index: 0;
+    }
+    .gold-streak {
+      position: fixed;
+      inset: -20% -10% auto -10%;
+      height: 220px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212,165,77,0.00) 22%, rgba(212,165,77,0.22) 50%, rgba(255,222,158,0.10) 58%, rgba(212,165,77,0.00) 78%, transparent 100%);
+      transform: translateX(-120%) rotate(-10deg);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(12px);
+      will-change: transform, opacity;
     }
 
     .site-shell { position: relative; z-index: 2; }
@@ -57,7 +71,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(16px);
-      background: rgba(2, 8, 20, 0.70);
+      background: rgba(2, 8, 20, 0.58);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .nav-inner {
@@ -73,15 +87,16 @@
       gap: 14px;
     }
     .brand-badge {
-      width: 52px;
-      height: 52px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       border: 1px solid rgba(212,165,77,0.35);
       background: rgba(255,255,255,0.04);
       padding: 6px;
       box-shadow: 0 0 24px rgba(212,165,77,0.14);
+      flex: 0 0 auto;
     }
-    .brand-badge img { width: 100%; height: 100%; object-fit: contain; }
+    .brand-badge img { width: 100%; height: 100%; object-fit: contain; display:block; }
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: 0.34em;
@@ -97,12 +112,13 @@
     }
     .nav-links a:hover { color: #e0b767; }
 
-    section { padding: 92px 0; }
+    section { padding: 92px 0; position: relative; }
 
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
+      padding-top: 40px;
     }
     .hero-grid {
       display: grid;
@@ -112,10 +128,26 @@
     }
     .glass-panel {
       border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(135deg, rgba(7,18,38,0.82), rgba(4,10,24,0.58));
-      backdrop-filter: blur(14px);
+      background: linear-gradient(135deg, rgba(7,18,38,0.72), rgba(4,10,24,0.48));
+      backdrop-filter: blur(16px);
       border-radius: 34px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.38);
+      position: relative;
+      overflow: hidden;
+    }
+    .glass-panel::after,
+    .mission-block::after {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: -34px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
+      opacity: 0.18;
+      filter: blur(16px);
+      pointer-events: none;
     }
     .hero-card { padding: 52px; }
     .hero h1 {
@@ -172,6 +204,8 @@
       padding: 28px;
       backdrop-filter: blur(12px);
       box-shadow: 0 18px 50px rgba(0,0,0,0.32);
+      position: relative;
+      overflow: hidden;
     }
     .mini-card h3 { color: #e0b767; font-size: 23px; margin-bottom: 12px; }
     .mini-card p { color: rgba(255,255,255,0.74); line-height: 1.75; font-size: 16px; }
@@ -225,6 +259,8 @@
     .service-card {
       padding: 28px;
       transition: transform 0.22s ease, border-color 0.22s ease;
+      position: relative;
+      overflow: hidden;
     }
     .service-card:hover {
       transform: translateY(-4px);
@@ -237,9 +273,11 @@
       padding: 50px;
       border-radius: 38px;
       border: 1px solid rgba(212,165,77,0.18);
-      background: linear-gradient(135deg, rgba(8,21,44,0.90), rgba(3,7,18,0.78));
+      background: linear-gradient(135deg, rgba(8,21,44,0.82), rgba(3,7,18,0.66));
       box-shadow: 0 24px 80px rgba(0,0,0,0.40);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
     }
     .mission-block p { margin-top: 24px; font-size: 18px; line-height: 2; color: rgba(255,255,255,0.80); max-width: 1080px; }
 
@@ -279,16 +317,18 @@
       .panel-pad,
       .mission-block { padding: 28px; }
       .container { width: min(1240px, calc(100% - 28px)); }
-      .background-logo { width: min(760px, 108vw); opacity: 0.15; }
+      .background-logo { width: min(760px, 108vw); opacity: 0.17; }
       .background-logo.depth { width: min(820px, 112vw); }
+      .brand-subtext { font-size: 13px; }
     }
   </style>
 </head>
 <body>
   <div class="background-logo-wrap">
     <div class="background-logo-glow"></div>
-    <img class="background-logo depth" src="darkblue transparent logo(4).png" alt="Equitas Background Logo" />
-    <img class="background-logo" src="darkblue transparent logo(4).png" alt="Equitas Background Logo" />
+    <div class="gold-streak" id="goldStreak"></div>
+    <img class="background-logo depth" id="bgLogoDepth" src="darkblue transparent logo(4).png" alt="Equitas Background Logo" />
+    <img class="background-logo" id="bgLogo" src="darkblue transparent logo(4).png" alt="Equitas Background Logo" />
   </div>
 
   <div class="site-shell">
@@ -296,7 +336,7 @@
       <div class="container nav-inner">
         <div class="brand">
           <div class="brand-badge">
-            <img src="darkblue transparent logo(3).png" alt="Equitas Logo" />
+            <img src="darkblue transparent logo(3).png" alt="Equitas Logo" onerror="this.style.display='none'" />
           </div>
           <div>
             <div class="eyebrow">Equitas Group LLC</div>
@@ -313,6 +353,19 @@
     </header>
 
     <main>
+      <section style="padding: 34px 0 0;">
+        <div class="container">
+          <div class="glass-panel panel-pad" style="padding: 18px 26px; display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:92px;">
+            <div>
+              <div class="eyebrow">Equitas Group LLC</div>
+              <div style="margin-top:8px; font-size: clamp(18px, 2vw, 28px); font-weight:600; color:#f7f8fb;">Holding company strategy, oversight, and long-term enterprise stewardship.</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <img src="darkblue transparent logo(3).png" alt="Equitas Banner Logo" style="width:72px; height:72px; object-fit:contain; display:block;" onerror="this.style.display='none'" />
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="hero">
         <div class="container hero-grid">
           <div class="glass-panel hero-card">
@@ -443,6 +496,28 @@
       </section>
     </main>
   </div>
+  <script>
+    (function () {
+      const bgLogo = document.getElementById('bgLogo');
+      const bgLogoDepth = document.getElementById('bgLogoDepth');
+      const streak = document.getElementById('goldStreak');
+
+      function animateScene() {
+        const y = window.scrollY || window.pageYOffset || 0;
+        if (bgLogo) bgLogo.style.transform = `translate3d(0, ${y * 0.08}px, 0)`;
+        if (bgLogoDepth) bgLogoDepth.style.transform = `translate3d(0, ${y * 0.05}px, 0)`;
+        if (streak) {
+          const progress = (y % 900) / 900;
+          const opacity = Math.min(0.26, Math.max(0, (Math.sin(progress * Math.PI) * 0.26)));
+          streak.style.opacity = opacity.toFixed(3);
+          streak.style.transform = `translateX(${(-120 + progress * 240).toFixed(2)}%) rotate(-10deg)`;
+        }
+      }
+
+      animateScene();
+      window.addEventListener('scroll', animateScene, { passive: true });
+    })();
+  </script>
 </body>
 </html>
 
