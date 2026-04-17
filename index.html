@@ -1,148 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Equitas Group</title>
-
-<style>
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #05070d;
-    color: #eaeef5;
-  }
-
-  .wrap {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  .banner {
-    text-align: center;
-    margin: 20px 0;
-  }
-
-  .banner img {
-    width: 720px;
-    max-width: 95%;
-    border-radius: 6px;
-  }
-
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .brand {
-    font-weight: 700;
-    letter-spacing: .12em;
-  }
-
-  .nav a {
-    margin-left: 20px;
-    color: #aaa;
-    text-decoration: none;
-  }
-
-  .hero {
-    padding: 60px 0;
-  }
-
-  h1 {
-    font-size: 52px;
-    margin-bottom: 10px;
-  }
-
-  .gold {
-    color: #d4af37;
-  }
-
-  .sub {
-    color: #aaa;
-    max-width: 600px;
-  }
-
-  .section {
-    padding: 40px 0;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .card {
-    background: #0b111c;
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  @media(max-width: 900px){
-    .grid {
-      grid-template-columns: 1fr;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equitas Group LLC</title>
+  <meta
+    name="description"
+    content="Equitas Group LLC provides high-level business, financial, and operational support grounded in strategic precision, legal insight, and disciplined execution."
+  />
+  <style>
+    :root {
+      --bg: #07090d;
+      --panel: #0f141c;
+      --panel-soft: #121925;
+      --text: #f4f6f8;
+      --muted: #aab3bf;
+      --line: rgba(255,255,255,0.08);
+      --gold: #c8a96a;
+      --gold-soft: #e2c78e;
+      --max: 1180px;
     }
-  }
-</style>
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(7,9,13,0.9);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-text strong {
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .brand-text span {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .banner {
+      padding: 22px 0 8px;
+    }
+
+    .banner-frame {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0b0f16;
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 760px;
+      margin: 0 0 18px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, var(--panel-soft), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    .hero-card h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-of-type {
+      border-bottom: 0;
+    }
+
+    .section-head {
+      margin-bottom: 28px;
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 650;
+    }
+
+    .section-sub {
+      max-width: 820px;
+      color: var(--muted);
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .mission {
+      max-width: 920px;
+    }
+
+    .mission p {
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-size: 17px;
+    }
+
+    .mission p strong {
+      color: var(--text);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--panel-soft), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contact-card {
+      max-width: 720px;
+    }
+
+    .contact-row {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-row:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .contact-row strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--gold-soft);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-row span,
+    .contact-row a {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 54px 0 42px;
+      }
+
+      .wrap {
+        padding: 0 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="wrap">
-
-  <!-- BANNER -->
-  <div class="banner">
-    <img src="Equita Banner final.png" alt="Equitas Banner">
-  </div>
-
-  <!-- NAV -->
   <div class="topbar">
-    <div class="brand">EQUITAS GROUP</div>
-    <div class="nav">
-      <a href="#">About</a>
-      <a href="#">Focus</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <div class="hero">
-    <h1><span class="gold">Built for Structure.</span><br>Positioned for Growth.</h1>
-    <p class="sub">
-      Equitas Group is a holding company focused on strategic ownership,
-      disciplined execution, and long-term enterprise value.
-    </p>
-  </div>
-
-  <!-- ABOUT -->
-  <div class="section">
-    <h2>About</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Strategic Holdings</h3>
-        <p>Focused on ownership and long-term value creation.</p>
+    <div class="wrap nav">
+      <div class="brand">
+        <img src="3d reflection r FINAL.png" alt="Equitas logo" />
+        <div class="brand-text">
+          <strong>Equitas Group</strong>
+          <span>Strategic Holdings</span>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Advisory</h3>
-        <p>Structured thinking and disciplined decision-making.</p>
-      </div>
-
-      <div class="card">
-        <h3>Growth</h3>
-        <p>Scalable, aligned, and execution-focused expansion.</p>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#focus">Focus</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </div>
 
-</div>
+  <div class="wrap banner">
+    <div class="banner-frame">
+      <img src="Equita Banner final.png" alt="Equitas Group banner" />
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Strategic Holdings • Advisory • Growth</div>
+        <h1>Built for structure.<br />Positioned for growth.</h1>
+        <p>
+          Equitas Group LLC is a holding company dedicated to disciplined ownership, strategic precision, and long-term enterprise value.
+        </p>
+        <p>
+          Our approach reflects clarity, restraint, and institutional thinking—built for clients, ventures, and opportunities that value substance over noise.
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <h3>Institutional by design</h3>
+        <p>
+          Equitas is structured to support high-level business, financial, and operational initiatives through disciplined strategy, risk-aware thinking, and sophisticated execution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">About</div>
+        <h2>Structured to support long-term value.</h2>
+        <p class="section-sub">
+          Equitas Group LLC operates with a disciplined, enterprise-focused perspective rooted in strategy, accountability, and operational clarity.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Strategic Holdings</h3>
+          <p>
+            A framework for disciplined ownership and aligned long-term enterprise positioning.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Business Advisory</h3>
+          <p>
+            Strategic guidance shaped by structure, commercial awareness, and execution discipline.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Operational Support</h3>
+          <p>
+            High-level support designed to strengthen business infrastructure and long-term performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="mission">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Mission</div>
+        <h2>A disciplined, risk-aware approach to growth.</h2>
+      </div>
+
+      <div class="mission">
+        <p>
+          <strong>Equitas Group LLC</strong> is dedicated to delivering high-level business, financial, and operational support services with a foundation rooted in legal insight, strategic precision, and uncompromising integrity.
+        </p>
+
+        <p>
+          Built upon a strong legal background in contracts, compliance, and dispute resolution, Equitas approaches every engagement with a disciplined, risk-aware perspective that safeguards client interests while positioning them for long-term success.
+        </p>
+
+        <p>
+          Our mission is to provide sophisticated, structured solutions that enhance operational efficiency, strengthen financial frameworks, and ensure full regulatory alignment. We operate with a commitment to transparency, accountability, and discretion, offering clients the confidence of working with a firm that understands both the legal and commercial dimensions of modern business.
+        </p>
+
+        <p>
+          Through a combination of legal acumen and executive-level strategy, Equitas Group LLC serves as a trusted partner in building, protecting, and scaling enterprise value.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="focus">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Core Focus</div>
+        <h2>Clear priorities. Sophisticated execution.</h2>
+        <p class="section-sub">
+          Equitas focuses on structure, financial clarity, operational support, and long-term strategic alignment.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Strategic Precision</h3>
+          <p>
+            Every engagement is approached with disciplined analysis, structured thinking, and long-range perspective.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Operational Integrity</h3>
+          <p>
+            We emphasize transparency, accountability, discretion, and measurable execution across enterprise activity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Contact</div>
+        <h2>Direct, discreet, and professional.</h2>
+      </div>
+
+      <div class="card contact-card">
+        <div class="contact-row">
+          <strong>Business Name</strong>
+          <span>Equitas Group LLC</span>
+        </div>
+
+        <div class="contact-row">
+          <strong>Email</strong>
+          <a href="mailto:info@equitasholding.com">info@equitasholding.com</a>
+        </div>
+
+        <div class="contact-row">
+          <strong>Website</strong>
+          <a href="https://equitasholding.com">equitasholding.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <strong style="color:#f4f6f8;">Equitas Group LLC</strong><br />
+        Strategic Holdings • Advisory • Growth
+      </div>
+
+      <div>
+        <a href="#about">About</a> ·
+        <a href="#mission">Mission</a> ·
+        <a href="#focus">Focus</a> ·
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
