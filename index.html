@@ -1,367 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Equitas Group LLC</title>
+            </div>
+          </div>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Inter, Arial, sans-serif;
-      background:
-        radial-gradient(circle at center, rgba(24, 74, 155, 0.16), transparent 34%),
-        linear-gradient(180deg, #020814 0%, #041122 44%, #020814 100%);
-      color: #eef3fb;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1280px, calc(100% - 44px));
-      margin: 0 auto;
-    }
-
-    /* NAV */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: rgba(2, 8, 20, 0.42);
-      backdrop-filter: blur(16px);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 20px 40px;
-      min-height: 100px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      min-width: 0;
-    }
-
-    .brand-logo {
-      width: 520px;
-      max-width: 52vw;
-      max-height: 125px;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      object-position: left center;
-      background: transparent;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 14px rgba(212,165,77,0.18));
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      font-size: 15px;
-      color: rgba(255,255,255,0.84);
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a:hover {
-      color: #e2b867;
-    }
-
-    /* BANNER */
-    .banner {
-      padding-top: 18px;
-    }
-
-    .banner .container {
-      width: 100vw !important;
-      max-width: 100vw !important;
-      margin-left: calc(-50vw + 50%) !important;
-      padding-left: 40px !important;
-      padding-right: 40px !important;
-    }
-
-    .banner-strip {
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(90deg, rgba(7,18,38,0.42), rgba(7,18,38,0.18));
-      backdrop-filter: blur(14px);
-      min-height: 200px !important;
-      padding: 50px 70px !important;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 50px !important;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
-    }
-
-    .banner-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .eyebrow {
-      font-size: 20px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: #d4a54d;
-    }
-
-    .metallic {
-      background: linear-gradient(
-        135deg,
-        #efcf87 0%,
-        #9e7830 18%,
-        #dfe8f5 38%,
-        #7a9fd8 56%,
-        #f0d28a 76%,
-        #dce7f7 100%
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: block;
-      font-weight: 700;
-    }
-
-    .banner-strip .metallic {
-      font-size: 72px !important;
-      font-weight: 700 !important;
-      line-height: 1.05 !important;
-      margin-top: 10px !important;
-      display: block !important;
-    }
-
-    .banner-logo {
-      width: 480px !important;
-      max-width: 40vw !important;
-      height: auto !important;
-      object-fit: contain !important;
-      display: block !important;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 100px 60px;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: #ccc;
-      max-width: 760px;
-      line-height: 1.7;
-    }
-
-    /* CONTACT */
-    .contact-section {
-      padding: 80px 40px;
-    }
-
-    .panel {
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(135deg, rgba(7,18,38,0.32), rgba(4,10,24,0.14));
-      backdrop-filter: blur(16px);
-      box-shadow: 0 20px 70px rgba(0,0,0,0.24);
-    }
-
-    .pad {
-      padding: 28px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 22px;
-    }
-
-    .contact-item small {
-      display: block;
-      font-size: 11px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: #d4a54d;
-      margin-bottom: 8px;
-    }
-
-    .contact-item div {
-      font-size: 16px;
-      color: rgba(255,255,255,0.86);
-    }
-
-    .contact-item a {
-      color: #d4a54d;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .contact-item a:hover {
-      text-decoration: underline;
-      color: #f0d28a;
-    }
-
-    @media (max-width: 1100px) {
-      .brand-logo {
-        width: 420px;
-      }
-
-      .banner-logo {
-        width: 360px !important;
-      }
-
-      .banner-strip .metallic {
-        font-size: 60px !important;
-      }
-    }
-
-    @media (max-width: 820px) {
-      .container {
-        width: min(1280px, calc(100% - 28px));
-      }
-
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 18px 20px;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-        gap: 16px;
-      }
-
-      .brand-logo {
-        width: 320px;
-        max-width: 80vw;
-      }
-
-      .banner .container {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-      }
-
-      .banner-strip {
-        flex-direction: column;
-        align-items: flex-start;
-        min-height: auto !important;
-        padding: 34px 28px !important;
-        gap: 24px !important;
-      }
-
-      .banner-strip .metallic {
-        font-size: 42px !important;
-      }
-
-      .banner-logo {
-        width: 300px !important;
-        max-width: 90vw !important;
-      }
-
-      .hero {
-        padding: 70px 24px;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .contact-section {
-        padding: 60px 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-        <img src="equitas-logo.png" class="brand-logo" alt="Equitas Group LLC logo" />
-      </div>
-
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#focus">Focus</a>
-        <a href="#mission">Mission</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="banner">
-    <div class="container">
-      <div class="banner-strip">
-        <div class="banner-left">
-          <div class="eyebrow">Equitas Group LLC</div>
-          <div class="metallic">Strength. Growth. Trust.</div>
-        </div>
-
-        <img src="Equita Banner final.png" class="banner-logo" alt="Equitas banner logo" />
-      </div>
-    </div>
-  </section>
-
-  <section class="hero" id="about">
-    <h1>Stewarding growth, governance, and long-term enterprise value.</h1>
-    <p>
-      Equitas Group LLC operates as a holding company focused on ownership,
-      strategy, disciplined growth, and long-term enterprise stewardship.
-    </p>
-  </section>
-
-  <section class="contact-section" id="contact">
-    <div class="panel pad">
-      <div class="contact-list">
-
-        <div class="contact-item">
-          <small>Email</small>
-          <div>
-            <a href="mailto:info@equitasholding.com">info@equitasholding.com</a>
+          <div class="stack">
+            <div class="mini-card">
+              <h3>Portfolio Oversight</h3>
+              <p>Active stewardship across affiliated ventures with an emphasis on structure, accountability, and sustainable growth.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Strategic Direction</h3>
+              <p>High-level business guidance designed to align operations, positioning, and long-term enterprise objectives.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Capital &amp; Risk Discipline</h3>
+              <p>A measured approach to financial organization, legal awareness, and decisions that preserve enterprise value.</p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="contact-item">
-          <small>Website</small>
-          <div>
-            <a href="https://www.equitasholding.com" target="_blank">www.equitasholding.com</a>
+      <section id="about">
+        <div class="container two-col">
+          <div class="glass-panel panel-pad">
+            <div class="section-label">About Equitas</div>
+            <div class="section-title lux-gradient">A refined holding company built for stewardship, structure, and growth.</div>
+            <div class="body-copy">
+              Equitas Group LLC operates as a holding company designed to own, support, and strategically guide business interests with a refined focus on long-term growth, sound structure, and disciplined oversight.
+            </div>
+          </div>
+
+          <div class="glass-panel panel-pad">
+            <div class="section-label">Core Standards</div>
+            <div class="standards-grid">
+              <div class="standard-pill">Portfolio Stewardship</div>
+              <div class="standard-pill">Long-Term Growth</div>
+              <div class="standard-pill">Strategic Discipline</div>
+              <div class="standard-pill">Governance</div>
+              <div class="standard-pill">Risk Awareness</div>
+              <div class="standard-pill">Value Preservation</div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="contact-item">
-          <small>Availability</small>
-          <div>By appointment and strategic consultation</div>
+      <section id="focus">
+        <div class="container">
+          <div class="section-label">Holding Company Focus</div>
+          <div class="section-title lux-gradient">Strategic oversight built for ownership, growth, and enterprise stability.</div>
+          <div class="services-grid" style="margin-top: 28px;">
+            <div class="service-card">
+              <h3>Subsidiary Oversight</h3>
+              <p>Centralized direction and support for affiliated businesses to promote consistency, efficiency, and aligned execution.</p>
+            </div>
+            <div class="service-card">
+              <h3>Strategic Growth</h3>
+              <p>Focused planning for expansion, brand development, market positioning, and long-term enterprise value creation.</p>
+            </div>
+            <div class="service-card">
+              <h3>Operational Governance</h3>
+              <p>Structured oversight of systems, decision-making, and organizational frameworks across company interests.</p>
+            </div>
+            <div class="service-card">
+              <h3>Legal &amp; Compliance Awareness</h3>
+              <p>A disciplined operating posture informed by contracts, compliance sensitivity, and defensible business practices.</p>
+            </div>
+          </div>
         </div>
+      </section>
 
-      </div>
-    </div>
-  </section>
+      <section id="mission">
+        <div class="container">
+          <div class="mission-block">
+            <div class="section-label">Mission Statement</div>
+            <div class="section-title lux-gradient">Purpose, discipline, and long-term stewardship.</div>
+            <p>
+              Equitas Group LLC is a holding company dedicated to acquiring, supporting, and strategically guiding business interests through disciplined oversight, refined structure, and long-term enterprise vision. Rooted in legal insight, strategic precision, and uncompromising integrity, Equitas focuses on value preservation, operational strength, responsible growth, and sound governance across its portfolio.
+            </p>
+          </div>
+        </div>
+      </section>
 
+      <section id="contact">
+        <div class="container contact-grid">
+          <div class="glass-panel panel-pad">
+            <div class="section-label">Contact</div>
+            <div class="section-title lux-gradient">Position your enterprise with clarity, structure, and long-term vision.</div>
+            <div class="body-copy">
+              Equitas welcomes inquiries regarding holding company strategy, portfolio growth, brand expansion, and disciplined business oversight.
+            </div>
+          </div>
+
+          <div class="glass-panel panel-pad">
+            <div class="contact-list">
+              <div class="contact-item">
+                <small>Email</small>
+                <div>contact@equitasholding.com</div>
+              </div>
+              <div class="contact-item">
+                <small>Website</small>
+                <div>www.equitasholding.com</div>
+              </div>
+              <div class="contact-item">
+                <small>Availability</small>
+                <div>By appointment and strategic consultation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const bgLogo = document.getElementById('bgLogo');
+      const bgLogoDepth = document.getElementById('bgLogoDepth');
+      const streak = document.getElementById('goldStreak');
+
+      function animateScene() {
+        const y = window.scrollY || window.pageYOffset || 0;
+        if (bgLogo) bgLogo.style.transform = `translate3d(0, ${y * 0.08}px, 0)`;
+        if (bgLogoDepth) bgLogoDepth.style.transform = `translate3d(0, ${y * 0.05}px, 0)`;
+        if (streak) {
+          const progress = (y % 900) / 900;
+          const opacity = Math.min(0.24, Math.max(0, (Math.sin(progress * Math.PI) * 0.24)));
+          streak.style.opacity = opacity.toFixed(3);
+          streak.style.transform = `translateX(${(-120 + progress * 240).toFixed(2)}%) rotate(-10deg)`;
+        }
+      }
+
+      animateScene();
+      window.addEventListener('scroll', animateScene, { passive: true });
+    })();
+  </script>
 </body>
 </html>
 
