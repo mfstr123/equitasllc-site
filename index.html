@@ -89,23 +89,25 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       min-width: 0;
     }
     .brand-logo {
-      width: 260px;
-      max-width: 34vw;
+      width: 320px;
+      max-width: 42vw;
+      max-height: 78px;
       height: auto;
       display: block;
       object-fit: contain;
+      object-position: left center;
       filter: drop-shadow(0 0 18px rgba(230,186,96,0.10));
+      flex-shrink: 0;
     }
-    .brand-copy { min-width: 0; }
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.34em;
-      text-transform: uppercase;
-      color: #d4a54d;
+    .brand-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .subcopy {
       margin-top: 4px;
@@ -350,8 +352,9 @@
     <header class="nav">
       <div class="container nav-inner">
         <div class="brand">
-          <img class="brand-logo" src="darkwith blue logo.png" alt="Equitas Group LLC logo" onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='block';" />
+          <img class="brand-logo" src="darkwith blue logo.png" alt="Equitas Group LLC logo" onerror="this.style.display='none'; document.getElementById('brandTextFallback').style.display='block';">
           <div id="brandFallback" class="metallic" style="display:none; font-size:28px; font-weight:800; letter-spacing:-0.03em; line-height:1;">EQUITAS</div>
+          <div id="brandTextFallback" class="metallic" style="display:none; font-size:32px; font-weight:800; letter-spacing:-0.03em; line-height:1;">EQUITAS</div>
           <div class="brand-copy">
             <div class="eyebrow">Equitas Group LLC</div>
             <div class="subcopy">Holding company strategy, oversight, and long-term value stewardship</div>
@@ -506,6 +509,7 @@
   </script>
 </body>
 </html>
+
 
 
 
